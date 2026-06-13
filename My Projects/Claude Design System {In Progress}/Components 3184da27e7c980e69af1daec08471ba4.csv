@@ -1,0 +1,45 @@
+Name,Status
+001. Claude Figma MCP setup,Done
+Toast Message,Done
+Table,Done
+002. Document Workflow,Done
+"003. Create StyleGuide ",Done
+004. Component Building Guidelines,Done
+" Rich Text editor",Done
+Accordion,Done
+Timeline,Done
+Alert,Done
+App Bar,Done
+Avatar,Done
+Badge,Done
+Button Component,Done
+Card,Done
+Carousel,Done
+Checkbox Option,Done
+Chips,Done
+Combobox,Done
+Comment Feed,Done
+Date picker,Done
+Dialogue,Done
+Divider,Done
+Dropdown,Done
+Flyout,Done
+Icon Button,Done
+Link,Done
+Menus,Done
+Radio Option,Done
+Search,Done
+Support Message,Done
+Switch,Done
+Text area,Done
+Textfield,Done
+Top Bar,Done
+005. Component Refactoring,Not started
+006. Storybook,Not started
+File upload,In progress
+Progress Bar,In progress
+Range Selector,Done
+Rating,Done
+Sidesheet,Done
+Score Card,Done
+Status Select,Done

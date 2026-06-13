@@ -1,0 +1,1430 @@
+{
+  "Core/Light Mode": {
+    "Brand": {
+      "primary": {
+        "0": {
+          "value": "#f8f9fb",
+          "type": "color"
+        },
+        "50": {
+          "value": "#eceef5",
+          "type": "color"
+        },
+        "100": {
+          "value": "#c1c9e0",
+          "type": "color"
+        },
+        "150": {
+          "value": "#afb8d4",
+          "type": "color"
+        },
+        "200": {
+          "value": "#9da8c9",
+          "type": "color"
+        },
+        "300": {
+          "value": "#354d97",
+          "type": "color"
+        },
+        "400": {
+          "value": "#32498f",
+          "type": "color"
+        },
+        "500": {
+          "value": "#2f4486",
+          "type": "color"
+        },
+        "600": {
+          "value": "#26366b",
+          "type": "color"
+        },
+        "700": {
+          "value": "#182344",
+          "type": "color"
+        },
+        "800": {
+          "value": "#1c2950",
+          "type": "color"
+        }
+      },
+      "secondary": {
+        "0": {
+          "value": "#fafcf8",
+          "type": "color"
+        },
+        "50": {
+          "value": "#f2f6ed",
+          "type": "color"
+        },
+        "100": {
+          "value": "#c2d4aa",
+          "type": "color"
+        },
+        "150": {
+          "value": "#79b98a",
+          "type": "color"
+        },
+        "200": {
+          "value": "#6baa7c",
+          "type": "color"
+        },
+        "300": {
+          "value": "#4e8b5e",
+          "type": "color"
+        },
+        "400": {
+          "value": "#326d41",
+          "type": "color"
+        },
+        "500": {
+          "value": "#154e24",
+          "type": "color"
+        },
+        "600": {
+          "value": "#113e1d",
+          "type": "color"
+        },
+        "700": {
+          "value": "#0d2f16",
+          "type": "color"
+        },
+        "800": {
+          "value": "#081f0e",
+          "type": "color"
+        }
+      }
+    },
+    "Global": {
+      "grayscale": {
+        "0": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "50": {
+          "value": "#f9f9f9",
+          "type": "color"
+        },
+        "100": {
+          "value": "#e5e5e5",
+          "type": "color"
+        },
+        "150": {
+          "value": "#d4d4d4",
+          "type": "color"
+        },
+        "200": {
+          "value": "#cccccc",
+          "type": "color"
+        },
+        "300": {
+          "value": "#b3b3b3",
+          "type": "color"
+        },
+        "400": {
+          "value": "#999999",
+          "type": "color"
+        },
+        "500": {
+          "value": "#808080",
+          "type": "color"
+        },
+        "600": {
+          "value": "#777777",
+          "type": "color"
+        },
+        "700": {
+          "value": "#696969",
+          "type": "color"
+        },
+        "800": {
+          "value": "#555555",
+          "type": "color"
+        },
+        "850": {
+          "value": "#4d4d4d",
+          "type": "color"
+        },
+        "900": {
+          "value": "#333333",
+          "type": "color"
+        }
+      },
+      "green": {
+        "0": {
+          "value": "#eef7eb",
+          "type": "color"
+        },
+        "50": {
+          "value": "#eef7eb",
+          "type": "color"
+        },
+        "100": {
+          "value": "#dcefd7",
+          "type": "color"
+        },
+        "150": {
+          "value": "#cbe7c3",
+          "type": "color"
+        },
+        "200": {
+          "value": "#badfaf",
+          "type": "color"
+        },
+        "300": {
+          "value": "#97ce87",
+          "type": "color"
+        },
+        "400": {
+          "value": "#75be5f",
+          "type": "color"
+        },
+        "500": {
+          "value": "#45932f",
+          "type": "color"
+        },
+        "600": {
+          "value": "#428b2c",
+          "type": "color"
+        },
+        "700": {
+          "value": "#316821",
+          "type": "color"
+        },
+        "800": {
+          "value": "#214616",
+          "type": "color"
+        },
+        "850": {
+          "value": "#193411",
+          "type": "color"
+        },
+        "900": {
+          "value": "#10230b",
+          "type": "color"
+        }
+      },
+      "orange": {
+        "0": {
+          "value": "#fffaf5",
+          "type": "color"
+        },
+        "50": {
+          "value": "#fef4e9",
+          "type": "color"
+        },
+        "100": {
+          "value": "#feead2",
+          "type": "color"
+        },
+        "150": {
+          "value": "#fddfbc",
+          "type": "color"
+        },
+        "200": {
+          "value": "#fcd4a5",
+          "type": "color"
+        },
+        "300": {
+          "value": "#fbbf78",
+          "type": "color"
+        },
+        "400": {
+          "value": "#f9a94b",
+          "type": "color"
+        },
+        "500": {
+          "value": "#f8941e",
+          "type": "color"
+        },
+        "600": {
+          "value": "#c67618",
+          "type": "color"
+        },
+        "700": {
+          "value": "#955912",
+          "type": "color"
+        },
+        "800": {
+          "value": "#633b0c",
+          "type": "color"
+        },
+        "850": {
+          "value": "#4a2c09",
+          "type": "color"
+        },
+        "900": {
+          "value": "#321e06",
+          "type": "color"
+        }
+      },
+      "red": {
+        "0": {
+          "value": "#fef3f5",
+          "type": "color"
+        },
+        "50": {
+          "value": "#f7dde1",
+          "type": "color"
+        },
+        "100": {
+          "value": "#efc6cd",
+          "type": "color"
+        },
+        "150": {
+          "value": "#e8b0b9",
+          "type": "color"
+        },
+        "200": {
+          "value": "#e19aa5",
+          "type": "color"
+        },
+        "300": {
+          "value": "#d31733",
+          "type": "color"
+        },
+        "400": {
+          "value": "#c51630",
+          "type": "color"
+        },
+        "500": {
+          "value": "#b5142c",
+          "type": "color"
+        },
+        "600": {
+          "value": "#911023",
+          "type": "color"
+        },
+        "700": {
+          "value": "#6d0c1a",
+          "type": "color"
+        },
+        "800": {
+          "value": "#480812",
+          "type": "color"
+        },
+        "850": {
+          "value": "#36060d",
+          "type": "color"
+        },
+        "900": {
+          "value": "#240409",
+          "type": "color"
+        }
+      },
+      "blue": {
+        "0": {
+          "value": "#f9f9fb",
+          "type": "color"
+        },
+        "50": {
+          "value": "#eef0f5",
+          "type": "color"
+        },
+        "100": {
+          "value": "#dde0eb",
+          "type": "color"
+        },
+        "150": {
+          "value": "#ccd1e1",
+          "type": "color"
+        },
+        "200": {
+          "value": "#bbc1d7",
+          "type": "color"
+        },
+        "300": {
+          "value": "#98a3c4",
+          "type": "color"
+        },
+        "400": {
+          "value": "#7684b0",
+          "type": "color"
+        },
+        "500": {
+          "value": "#54659c",
+          "type": "color"
+        },
+        "600": {
+          "value": "#43517d",
+          "type": "color"
+        },
+        "700": {
+          "value": "#323d5e",
+          "type": "color"
+        },
+        "800": {
+          "value": "#22283e",
+          "type": "color"
+        },
+        "850": {
+          "value": "#191e2f",
+          "type": "color"
+        },
+        "900": {
+          "value": "#11141f",
+          "type": "color"
+        }
+      },
+      "shadows": {
+        "0": {
+          "value": "#00000000",
+          "type": "color"
+        },
+        "5": {
+          "value": "#0000000d",
+          "type": "color"
+        },
+        "10": {
+          "value": "#0000001a",
+          "type": "color"
+        },
+        "12": {
+          "value": "#0000001f",
+          "type": "color"
+        },
+        "13": {
+          "value": "#00000021",
+          "type": "color"
+        },
+        "14": {
+          "value": "#00000024",
+          "type": "color"
+        },
+        "15": {
+          "value": "#00000026",
+          "type": "color"
+        },
+        "16": {
+          "value": "#00000029",
+          "type": "color"
+        },
+        "17": {
+          "value": "#0000002b",
+          "type": "color"
+        },
+        "20": {
+          "value": "#00000033",
+          "type": "color"
+        },
+        "25": {
+          "value": "#00000040",
+          "type": "color"
+        },
+        "30": {
+          "value": "#0000004d",
+          "type": "color"
+        },
+        "35": {
+          "value": "#00000059",
+          "type": "color"
+        },
+        "45": {
+          "value": "#00000073",
+          "type": "color"
+        },
+        "55": {
+          "value": "#0000008c",
+          "type": "color"
+        },
+        "65": {
+          "value": "#000000a6",
+          "type": "color"
+        }
+      },
+      "Always-Light": {
+        "value": "#ffffff",
+        "type": "color"
+      },
+      "Always-Dark": {
+        "value": "#333333",
+        "type": "color"
+      }
+    }
+  },
+  "Foundations/WG-Foundations": {
+    "palette": {
+      "basic": {
+        "primary": {
+          "primary base": {
+            "value": "{Brand.primary.500}",
+            "type": "color"
+          },
+          "primary dark": {
+            "value": "{Brand.primary.800}",
+            "type": "color"
+          },
+          "primary light": {
+            "value": "{Brand.primary.50}",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "secondary base": {
+            "value": "{Brand.secondary.500}",
+            "type": "color"
+          },
+          "secondary dark": {
+            "value": "{Brand.secondary.800}",
+            "type": "color"
+          },
+          "secondary light": {
+            "value": "{Brand.secondary.50}",
+            "type": "color"
+          }
+        },
+        "solid": {
+          "highlight": {
+            "value": "#ffeebf",
+            "type": "color"
+          },
+          "white": {
+            "value": "{Global.Always-Light}",
+            "type": "color"
+          },
+          "black": {
+            "value": "{Global.Always-Dark}",
+            "type": "color"
+          }
+        },
+        "complementary": {
+          "success": {
+            "value": "{Global.green.500}",
+            "type": "color"
+          },
+          "success light": {
+            "value": "{Global.green.50}",
+            "type": "color"
+          },
+          "warning": {
+            "value": "{Global.orange.500}",
+            "type": "color"
+          },
+          "warning light": {
+            "value": "{Global.orange.50}",
+            "type": "color"
+          },
+          "danger": {
+            "value": "{Global.red.500}",
+            "type": "color"
+          },
+          "danger light": {
+            "value": "{Global.red.50}",
+            "type": "color"
+          },
+          "info": {
+            "value": "{Global.blue.500}",
+            "type": "color"
+          },
+          "info light": {
+            "value": "{Global.blue.50}",
+            "type": "color"
+          }
+        },
+        "surface": {
+          "value": "{Global.grayscale.0}",
+          "type": "color"
+        },
+        "background": {
+          "value": "{Global.grayscale.50}",
+          "type": "color"
+        },
+        "on-colors": {
+          "on-primary": {
+            "on-primary": {
+              "value": "{Global.Always-Light}",
+              "type": "color"
+            },
+            "on-primary-dark": {
+              "value": "{Global.Always-Light}",
+              "type": "color"
+            },
+            "on-primary-light": {
+              "value": "{Global.Always-Dark}",
+              "type": "color"
+            }
+          },
+          "on-secondary": {
+            "on-secondary": {
+              "value": "{Global.Always-Light}",
+              "type": "color"
+            },
+            "on-secondary-dark": {
+              "value": "{Global.Always-Light}",
+              "type": "color"
+            },
+            "on-secondary-light": {
+              "value": "{Global.Always-Dark}",
+              "type": "color"
+            }
+          },
+          "on-surface": {
+            "value": "{Global.grayscale.900}",
+            "type": "color"
+          },
+          "on-surface-subtle": {
+            "value": "{Global.grayscale.700}",
+            "type": "color"
+          },
+          "on-complementary": {
+            "on-danger": {
+              "value": "{Global.grayscale.0}",
+              "type": "color"
+            },
+            "on-warning": {
+              "value": "{Global.grayscale.0}",
+              "type": "color"
+            },
+            "on-success": {
+              "value": "{Global.grayscale.0}",
+              "type": "color"
+            },
+            "on-info": {
+              "value": "{Global.grayscale.0}",
+              "type": "color"
+            }
+          }
+        },
+        "stroke": {
+          "stroke-subtle": {
+            "value": "{Global.grayscale.150}",
+            "type": "color",
+            "description": "Used for light borders"
+          },
+          "stroke": {
+            "value": "{Global.grayscale.800}",
+            "type": "color"
+          }
+        }
+      },
+      "additional": {
+        "selected state": {
+          "value": "{Brand.primary.0}",
+          "type": "color"
+        }
+      },
+      "grayscale": {
+        "grayscale 1": {
+          "value": "{Global.grayscale.900}",
+          "type": "color"
+        },
+        "grayscale 2": {
+          "value": "{Global.grayscale.850}",
+          "type": "color"
+        },
+        "grayscale 3": {
+          "value": "{Global.grayscale.600}",
+          "type": "color"
+        },
+        "grayscale 4": {
+          "value": "{Global.grayscale.400}",
+          "type": "color"
+        },
+        "grayscale 6": {
+          "value": "{Global.grayscale.50}",
+          "type": "color",
+          "description": "Used for light bg"
+        },
+        "grayscale 5": {
+          "value": "{Global.grayscale.150}",
+          "type": "color",
+          "description": "Used for light borders"
+        }
+      },
+      "interaction-state": {
+        "hover": {
+          "primary": {
+            "primary-base-hover": {
+              "value": "{Brand.primary.400}",
+              "type": "color"
+            },
+            "primary-dark-hover": {
+              "value": "{Brand.primary.700}",
+              "type": "color"
+            },
+            "primary-light-hover": {
+              "value": "{Brand.primary.100}",
+              "type": "color"
+            }
+          },
+          "secondary": {
+            "secondary-base-hover": {
+              "value": "{Brand.secondary.400}",
+              "type": "color"
+            },
+            "secondary-dark-hover": {
+              "value": "{Brand.secondary.700}",
+              "type": "color"
+            },
+            "secondary-light-hover": {
+              "value": "{Brand.secondary.100}",
+              "type": "color"
+            }
+          },
+          "on-colors": {
+            "on-surface-hover": {
+              "value": "{Global.grayscale.850}",
+              "type": "color"
+            },
+            "on-surface-subtle-hover": {
+              "value": "{Global.grayscale.600}",
+              "type": "color"
+            },
+            "on-primary": {
+              "on-primary-hover": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-primary-dark-hover": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-primary-light-hover": {
+                "value": "{Global.Always-Dark}",
+                "type": "color"
+              }
+            },
+            "on-secondary": {
+              "on-secondary-hover": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-secondary-dark-hover": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-secondary-light-hover": {
+                "value": "{Global.Always-Dark}",
+                "type": "color"
+              }
+            },
+            "on-complementary": {
+              "on-danger-hover": {
+                "value": "{Global.grayscale.0}",
+                "type": "color"
+              },
+              "on-warning-hover": {
+                "value": "{Global.grayscale.0}",
+                "type": "color"
+              },
+              "on-success-hover": {
+                "value": "{Global.grayscale.0}",
+                "type": "color"
+              },
+              "on-info-hover": {
+                "value": "{Global.grayscale.0}",
+                "type": "color"
+              }
+            }
+          },
+          "stroke": {
+            "stroke-hover": {
+              "value": "{Global.grayscale.700}",
+              "type": "color"
+            },
+            "strok-subtle-hover": {
+              "value": "{Global.grayscale.300}",
+              "type": "color"
+            }
+          },
+          "complementary": {
+            "success-hover": {
+              "value": "{Global.green.400}",
+              "type": "color"
+            },
+            "success-light-hover": {
+              "value": "{Global.green.100}",
+              "type": "color"
+            },
+            "warning-hover": {
+              "value": "{Global.orange.400}",
+              "type": "color"
+            },
+            "warning-light-hover": {
+              "value": "{Global.orange.100}",
+              "type": "color"
+            },
+            "danger-hover": {
+              "value": "{Global.red.400}",
+              "type": "color"
+            },
+            "danger-light-hover": {
+              "value": "{Global.red.100}",
+              "type": "color"
+            },
+            "info-hover": {
+              "value": "{Global.blue.400}",
+              "type": "color"
+            },
+            "info-light-hover": {
+              "value": "{Global.blue.100}",
+              "type": "color"
+            }
+          },
+          "surface-hover": {
+            "value": "{Global.grayscale.200}",
+            "type": "color"
+          },
+          "background-hover": {
+            "value": "{Global.grayscale.100}",
+            "type": "color"
+          }
+        },
+        "pressed": {
+          "primary": {
+            "primary-base-pressed": {
+              "value": "{Brand.primary.300}",
+              "type": "color"
+            },
+            "primary-dark-pressed": {
+              "value": "{Brand.primary.600}",
+              "type": "color"
+            },
+            "primary-light-pressed": {
+              "value": "{Brand.primary.150}",
+              "type": "color"
+            }
+          },
+          "secondary": {
+            "secondary-base-pressed": {
+              "value": "{Brand.secondary.300}",
+              "type": "color"
+            },
+            "secondary-dark-pressed": {
+              "value": "{Brand.secondary.600}",
+              "type": "color"
+            },
+            "secondary-light-pressed": {
+              "value": "{Brand.secondary.150}",
+              "type": "color"
+            }
+          },
+          "on-colors": {
+            "on-surface-pressed": {
+              "value": "{Global.grayscale.800}",
+              "type": "color"
+            },
+            "on-surface-subtle-pressed": {
+              "value": "{Global.grayscale.500}",
+              "type": "color"
+            },
+            "on-primary": {
+              "on-primary-pressed": {
+                "value": "{Global.Always-Dark}",
+                "type": "color"
+              },
+              "on-primary-dark-pressed": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-primary-light-pressed": {
+                "value": "{Global.Always-Dark}",
+                "type": "color"
+              }
+            },
+            "on-secondary": {
+              "on-secondary-pressed": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-secondary-dark-pressed": {
+                "value": "{Global.Always-Light}",
+                "type": "color"
+              },
+              "on-secondary-light-pressed": {
+                "value": "{Global.Always-Dark}",
+                "type": "color"
+              }
+            },
+            "on-complementary": {
+              "on-danger-pressed": {
+                "value": "{Global.grayscale.0}",
+                "type": "color"
+              },
+              "on-warning-pressed": {
+                "value": "{Global.grayscale.900}",
+                "type": "color"
+              },
+              "on-success-pressed": {
+                "value": "{Global.grayscale.900}",
+                "type": "color"
+              },
+              "on-info-pressed": {
+                "value": "{Global.grayscale.900}",
+                "type": "color"
+              }
+            }
+          },
+          "stroke": {
+            "stroke-pressed": {
+              "value": "{Global.grayscale.600}",
+              "type": "color"
+            },
+            "strok-subtle-pressed": {
+              "value": "{Global.grayscale.300}",
+              "type": "color"
+            }
+          },
+          "complementary": {
+            "success-pressed": {
+              "value": "{Global.green.300}",
+              "type": "color"
+            },
+            "success-light-pressed": {
+              "value": "{Global.green.150}",
+              "type": "color"
+            },
+            "warning-pressed": {
+              "value": "{Global.orange.300}",
+              "type": "color"
+            },
+            "warning-light-pressed": {
+              "value": "{Global.orange.150}",
+              "type": "color"
+            },
+            "danger-pressed": {
+              "value": "{Global.red.300}",
+              "type": "color"
+            },
+            "danger-light-pressed": {
+              "value": "{Global.red.150}",
+              "type": "color"
+            },
+            "info-pressed": {
+              "value": "{Global.blue.300}",
+              "type": "color"
+            },
+            "info-light-pressed": {
+              "value": "{Global.blue.150}",
+              "type": "color"
+            }
+          },
+          "surface-pressed": {
+            "value": "{Global.grayscale.300}",
+            "type": "color"
+          },
+          "background-pressed": {
+            "value": "{Global.grayscale.150}",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "radius": {
+      "zero": {
+        "value": 0,
+        "type": "number"
+      },
+      "extra-small": {
+        "value": 4,
+        "type": "number"
+      },
+      "small": {
+        "value": 8,
+        "type": "number"
+      },
+      "medium": {
+        "value": 16,
+        "type": "number"
+      },
+      "large": {
+        "value": 24,
+        "type": "number"
+      },
+      "extra-large": {
+        "value": 32,
+        "type": "number"
+      },
+      "extra-extra-large": {
+        "value": 64,
+        "type": "number"
+      },
+      "full": {
+        "value": 999,
+        "type": "number"
+      }
+    },
+    "strokes": {
+      "0": {
+        "value": 0,
+        "type": "number"
+      },
+      "1": {
+        "value": 1,
+        "type": "number"
+      },
+      "2": {
+        "value": 2,
+        "type": "number"
+      }
+    },
+    "spacing": {
+      "component": {
+        "0": {
+          "value": 0,
+          "type": "number"
+        },
+        "1": {
+          "value": 4,
+          "type": "number"
+        },
+        "2": {
+          "value": 8,
+          "type": "number"
+        },
+        "3": {
+          "value": 12,
+          "type": "number"
+        },
+        "4": {
+          "value": 16,
+          "type": "number"
+        },
+        "5": {
+          "value": 20,
+          "type": "number"
+        },
+        "6": {
+          "value": 24,
+          "type": "number"
+        },
+        "7": {
+          "value": 28,
+          "type": "number"
+        },
+        "8": {
+          "value": 32,
+          "type": "number"
+        },
+        "9": {
+          "value": 36,
+          "type": "number"
+        },
+        "10": {
+          "value": 40,
+          "type": "number"
+        }
+      },
+      "layout": {
+        "0": {
+          "value": 0,
+          "type": "number"
+        },
+        "1": {
+          "value": 4,
+          "type": "number"
+        },
+        "2": {
+          "value": 8,
+          "type": "number"
+        },
+        "3": {
+          "value": 12,
+          "type": "number"
+        },
+        "4": {
+          "value": 16,
+          "type": "number"
+        },
+        "5": {
+          "value": 20,
+          "type": "number"
+        },
+        "6": {
+          "value": 24,
+          "type": "number"
+        },
+        "7": {
+          "value": 28,
+          "type": "number"
+        },
+        "8": {
+          "value": 32,
+          "type": "number"
+        },
+        "9": {
+          "value": 36,
+          "type": "number"
+        },
+        "10": {
+          "value": 40,
+          "type": "number"
+        }
+      }
+    },
+    "Sizing": {
+      "10": {
+        "value": 80,
+        "type": "number"
+      },
+      "11": {
+        "value": 88,
+        "type": "number"
+      },
+      "12": {
+        "value": 96,
+        "type": "number"
+      },
+      "13": {
+        "value": 104,
+        "type": "number"
+      },
+      "14": {
+        "value": 112,
+        "type": "number"
+      },
+      "15": {
+        "value": 120,
+        "type": "number"
+      },
+      "16": {
+        "value": 128,
+        "type": "number"
+      },
+      "17": {
+        "value": 136,
+        "type": "number"
+      },
+      "18": {
+        "value": 144,
+        "type": "number"
+      },
+      "19": {
+        "value": 152,
+        "type": "number"
+      },
+      "20": {
+        "value": 160,
+        "type": "number"
+      },
+      "01": {
+        "value": 8,
+        "type": "number"
+      },
+      "02": {
+        "value": 16,
+        "type": "number"
+      },
+      "03": {
+        "value": 24,
+        "type": "number"
+      },
+      "04": {
+        "value": 32,
+        "type": "number"
+      },
+      "05": {
+        "value": 40,
+        "type": "number"
+      },
+      "06": {
+        "value": 48,
+        "type": "number"
+      },
+      "07": {
+        "value": 56,
+        "type": "number"
+      },
+      "08": {
+        "value": 64,
+        "type": "number"
+      },
+      "09": {
+        "value": 72,
+        "type": "number"
+      },
+      "Minimum tapable": {
+        "value": 48,
+        "type": "number"
+      }
+    }
+  },
+  "$themes": [
+    {
+      "id": "core-light mode",
+      "name": "Light Mode",
+      "group": "Core",
+      "selectedTokenSets": {},
+      "$figmaStyleReferences": {},
+      "$figmaVariableReferences": {
+        "Brand.primary.0": "4b1edba347969a9147af008511b35d036e018a8e",
+        "Brand.primary.50": "1c87d406a3bcf06785355b8816aaf92973c830a2",
+        "Brand.primary.100": "6d0d8dfb522b3bea74e16b1f3da9e5a9d6d945c0",
+        "Brand.primary.150": "a2568a04768d6491dfa4895472e67174faf45f71",
+        "Brand.primary.200": "6b24df7a5fd9c01a175a022e84ddd1b5a60b14e0",
+        "Brand.primary.300": "c9a66649f93c92bd6cb4199dd8eac4bddd5f1dac",
+        "Brand.primary.400": "709db6fb57470ada94cfb369e97b5d2a94078620",
+        "Brand.primary.500": "fbfd69fbefd113e4d249bf0eb86eee3a2b2db9d5",
+        "Brand.primary.600": "59cc6e09190fa5d9950678a7f1e6bb51b015b0d8",
+        "Brand.primary.700": "311dcba4bb9ec5e1ff661cd7c66a3af4125abd3f",
+        "Brand.primary.800": "bc57db8305641301b6902eca2ac4885893f8bf56",
+        "Brand.secondary.0": "f9fce15fe1bf01483d350f1149ccb2a13622dc76",
+        "Brand.secondary.50": "b2f8002e9a04e944be007bd9dca377fece849836",
+        "Brand.secondary.100": "30329aa7acdd12ab81bb45bf78adec74244fbe49",
+        "Brand.secondary.150": "f78063802dbc70ed718129ebc61b7fef59903c68",
+        "Brand.secondary.200": "31b673b99a8495ad4ae593fb308851f84b8b5ede",
+        "Brand.secondary.300": "c6df9a8c4a0e55cfb16911208bc8510a7a0f3a42",
+        "Brand.secondary.400": "670911f21fdfc47da9b714deafd6576b145ecc59",
+        "Brand.secondary.500": "153c39f8c4a761fe591775d5c0ce45d54282ba2c",
+        "Brand.secondary.600": "311818c9697261e96d0e5575332d2ef03c7ba0cf",
+        "Brand.secondary.700": "2deb91b89ee44e7d73b3438f2b3a6d01522f9ad7",
+        "Brand.secondary.800": "b459a09b93df265e722888713954b3f1cf73965b",
+        "Global.grayscale.0": "c59da68bc665664cd354e9be89a5ee4e2dac4977",
+        "Global.grayscale.50": "37ad01b445cdc57f7ae1666760f77afa82fce91e",
+        "Global.grayscale.100": "106c4d0f593d2ce8bd4d90c4366318712f84ad9b",
+        "Global.grayscale.150": "e02e970866187370864df1d1b26239ab7b392f5c",
+        "Global.grayscale.200": "e037c23eab697a984b3ea44c28955ca8256d8bc7",
+        "Global.grayscale.300": "128531155e321bca4617d2362129132339ee11f8",
+        "Global.grayscale.400": "e09b493a0b06a6c777f9deb2f27573758decec6e",
+        "Global.grayscale.500": "663ae7386862871f13552c94d4d8c2e9ca89898a",
+        "Global.grayscale.600": "10d1731b86c9e94e7dff7b21aaf467e68b21e2a3",
+        "Global.grayscale.700": "abfb4307202bbe81b541740b55b0434570a70b73",
+        "Global.grayscale.800": "352f1c5026869d40e831da02fd1e90d5bd8700b1",
+        "Global.grayscale.850": "55f9d6be5f5bff6c1d996525a9a9aa6a1f889a4f",
+        "Global.grayscale.900": "759954ab7f1d1df256c17b38d154f8e6f3e5765b",
+        "Global.green.0": "4a7b560e4f8cb3b835dc5dce923fe3fb222450f1",
+        "Global.green.50": "ec1159f0fe8af012c9f2a6a50d65a96566fb39fc",
+        "Global.green.100": "0e00a70564b7bbc25de65a482a5db71c9e7501c8",
+        "Global.green.150": "dc5b96f105fbd442888981dfc568751bb495b4ca",
+        "Global.green.200": "c1cb31f7b6d0cd219018d5694c863579e2254526",
+        "Global.green.300": "23678854ebad75e338260ce566d672f38ae5b52c",
+        "Global.green.400": "501228b0b52c7c1fb3ec1e871409b1175bbca14c",
+        "Global.green.500": "c62ec372e2385bb50dfa3ef416cad59f1554ef84",
+        "Global.green.600": "23729c6b8f194574ade3e745b0163574a257b459",
+        "Global.green.700": "9619def7034487c32aec1dd4f6f7cbc1fe225f55",
+        "Global.green.800": "ae828a265775f9c4a2034e846dcabcb459d2d826",
+        "Global.green.850": "d46e1c22ab60d9e44e1a9307fd8bf967d773e169",
+        "Global.green.900": "066cadd778105c650b5c387827198caed251482f",
+        "Global.orange.0": "183ee984e675ed918bec123444ee053c17fffbba",
+        "Global.orange.50": "16180da770636130cbe05270f34e0cb4f622aecc",
+        "Global.orange.100": "a61c829d8c6a22eddc0bac1d7a425f2e0f63997e",
+        "Global.orange.150": "5153e0fa921a44d136169cc90872575d45d08898",
+        "Global.orange.200": "c4f32a02d80f65ed3bd7c5e6cc68923b3f961d6d",
+        "Global.orange.300": "33bbe6539f0a90e24f1709513a69919564487131",
+        "Global.orange.400": "2c135f3745ff8d54e38b6e4aa7ba23df3eb939b0",
+        "Global.orange.500": "d3635bb39d31dff392057ba1f144c295aad1ee3f",
+        "Global.orange.600": "519da36076e09902ac4dac43e22a6267ecb85be0",
+        "Global.orange.700": "2080c5fd4b8b1b8f1b74b48e5a360390d5139030",
+        "Global.orange.800": "653455b5f807797435c1408e6c3fea17bc569066",
+        "Global.orange.850": "d082c1a02579d12f6a19a9f2ad8bf2bbe0259786",
+        "Global.orange.900": "1214c8e7bc7d5c0b0641e3d9b9e4a6f5cc5a5aaa",
+        "Global.red.0": "f7568fa8f54307d0ec8a540b4e454fb36e6b7938",
+        "Global.red.50": "84dc1496a618a251a18dee178471ddc573924f4a",
+        "Global.red.100": "2f4bd5ccb8a17bda526eebf0e55fb091ccb860a9",
+        "Global.red.150": "bcd9164d48257300ebcfb7d9f0a3a4e0e95625c7",
+        "Global.red.200": "5c6fca0c4ba46b112ec2a9fe147b92f9bf9a4ae1",
+        "Global.red.300": "cf4713e941f4b525b51a2f8464565b57c5ff33a2",
+        "Global.red.400": "5b9627051019b4418c5d109f523198d41a5a5841",
+        "Global.red.500": "105d0af9ef1d4c1eb04673377caa8cc1e2c347f5",
+        "Global.red.600": "f634202b30f8f19ef9d5d24c80a6569c73c1bc3f",
+        "Global.red.700": "0595005e1dcea69e75eb47bc7b3393c1a99018cc",
+        "Global.red.800": "d852f0caa76c74b801aff4d74d877c4454e7558e",
+        "Global.red.850": "e2b3cd1facd2e978585c38241b0104f428f231d9",
+        "Global.red.900": "81e781c841a92e9daa41f47439e6dee281c092f7",
+        "Global.blue.0": "a8f91cc8f1c058253d5d24c47bb5335cd2c742c9",
+        "Global.blue.50": "cf1ffba3d6e01ec7ca12aa6cc82c0ca7451ffee5",
+        "Global.blue.100": "68b89139abc09c5303b66def20aeb041f1cda478",
+        "Global.blue.150": "90b39229daa1dfe515900416e2332120be5684e8",
+        "Global.blue.200": "3cb5d011af1ae6ff64a87eb3a17fcf6df01afd08",
+        "Global.blue.300": "48ab1044f76cc9e6f0b4cba0dc11a48493f1db38",
+        "Global.blue.400": "b9d562aad6da3be6e61ac8f610d6d12c0315427c",
+        "Global.blue.500": "30d825b0b295acea43554eb25a709dc67ff230c0",
+        "Global.blue.600": "8ebc0f2565a4f41267741f197bdfbf192a3ee143",
+        "Global.blue.700": "44859df8c4590940e0aac37b0b1186bd799a901c",
+        "Global.blue.800": "99bbeee6cad53f90da4d9d5f97e26d43ee124aeb",
+        "Global.blue.850": "12a1c8c42e4f5ac44e4ab92832fc283411616969",
+        "Global.blue.900": "d9331a70429b7cdbcc8eb6db76bbbb92a8a066a5",
+        "Global.shadows.0": "59b91296519f3fa21de4f05e12185574390925e6",
+        "Global.shadows.5": "e303e1b8d26c3d94194c2a0d5441e732755bea54",
+        "Global.shadows.10": "8ec3cd74ca06a81e4f3b3484cb40c0d1e16aedc1",
+        "Global.shadows.12": "02a4f0af2cda32d537e1f5ca6cfb17971c31011a",
+        "Global.shadows.13": "bc9fbec1b1bdab0a95cbcaaf91756661ab3a1ea9",
+        "Global.shadows.14": "00f07797a99f184bdf752d25537e3e48f287bded",
+        "Global.shadows.15": "706786be1d236daf58e46e21b6bd622dd353bf79",
+        "Global.shadows.16": "d64e5ac945a3f326e36640c7a7f2a65368a075ce",
+        "Global.shadows.17": "6fe2d3d157b33e7d7896797a2a51857423e9aff6",
+        "Global.shadows.20": "77ee40d8f4af9cb234cf49016f84c62ed6dc80d9",
+        "Global.shadows.25": "a67198c54831a02ab2e86c42e738bda4ba383df4",
+        "Global.shadows.30": "96dd21b21a7be061ecd11c6ca684c2cb6389197e",
+        "Global.shadows.35": "58ad388908bfd1ae0424a265004abb43e57151e5",
+        "Global.shadows.45": "5e9b7b00e90d7247a56db657603e237b58766639",
+        "Global.shadows.55": "2ca168f74123fcd982e766c1d9be7005b2b18d8b",
+        "Global.shadows.65": "61b812a9544ffa98147ef6765971ca6864d6434a",
+        "Global.Always-Light": "874026db0460d57e8e8f63812a38fa799760e2c6",
+        "Global.Always-Dark": "d2a3a9ae82b9da66807d7dca3dbccfce488d0fc4"
+      },
+      "$figmaModeId": "2:0",
+      "$figmaCollectionId": "VariableCollectionId:2:2"
+    },
+    {
+      "id": "foundations-wg-foundations",
+      "name": "WG-Foundations",
+      "group": "Foundations",
+      "selectedTokenSets": {},
+      "$figmaStyleReferences": {},
+      "$figmaVariableReferences": {
+        "palette.basic.primary.primary base": "827d5a5d743805f0a99e73ef962932336821e9ba",
+        "palette.basic.primary.primary dark": "f60b2e885a01a4455c72a893fa6cd33b8bb24e46",
+        "palette.basic.primary.primary light": "3a3251cb2608e20993e15630866d03d2feb73291",
+        "palette.basic.secondary.secondary base": "442b6bf8a547aba41e9947b43beee91f8c8d1ad1",
+        "palette.basic.secondary.secondary dark": "8d72e5dcae931b55f23a54a5c404ff955eebe2ef",
+        "palette.basic.secondary.secondary light": "f7ac6bf0b76b83eee4698695a17db3855dcdafe2",
+        "palette.basic.solid.highlight": "fdc60c6cd0932f584d6b47fd0e4f23bd40681249",
+        "palette.basic.solid.white": "e8f8d7a0bcf8abff8911941592c5e7f3a4f3d4cd",
+        "palette.basic.solid.black": "df1dd950d9c6eeb991f5595ab20ea4810df30141",
+        "palette.basic.complementary.success": "78a67870c9bedaf49198ba0a52a78e08a07217c5",
+        "palette.basic.complementary.success light": "b48625e2a3c8ecb32c903c74522e95954a93c8cc",
+        "palette.basic.complementary.warning": "6ff4e0d9341b49b088a37240ea4ca02787514ed7",
+        "palette.basic.complementary.warning light": "d1884a5c780d09409fc94b469d39441d57abc3e9",
+        "palette.basic.complementary.danger": "6407feb32d3175b77cbc99af76136d920fbeac1b",
+        "palette.basic.complementary.danger light": "1338dbbc00d29db45345ca6b5f0fbd16843c01c0",
+        "palette.basic.complementary.info": "cea3f0b00768cf6a443f2233cee26fbf8b89d407",
+        "palette.basic.complementary.info light": "5470a2fab635de61286de7219bf8c2fc099844a3",
+        "palette.basic.surface": "49c22df475c65d5b52d4fe148254c6df39e8ae18",
+        "palette.basic.background": "efbd2ac1421a5a79f135dd6ee4159858c8297a46",
+        "palette.basic.on-colors.on-primary.on-primary": "03e6dadbdc3533f8792ee47b5c2d30be3ca59b57",
+        "palette.basic.on-colors.on-primary.on-primary-dark": "06c6f5e33d56572bb6574de448784b5c156b265e",
+        "palette.basic.on-colors.on-primary.on-primary-light": "f138017fff889a64cf21a4116e4625ce0e87ec2a",
+        "palette.basic.on-colors.on-secondary.on-secondary": "6385495be981d711e26e875507160099676bafb0",
+        "palette.basic.on-colors.on-secondary.on-secondary-dark": "5df69933c725bbb8f4b416f57ff86dccba3ae4a1",
+        "palette.basic.on-colors.on-secondary.on-secondary-light": "941b4df21af1199a8bb4424565c4804d58b8e854",
+        "palette.basic.on-colors.on-surface": "0efebf89f9442ddd4ed99209ca0a62b034f22ba9",
+        "palette.basic.on-colors.on-surface-subtle": "42c86166c90841718b8b1bd70822f7f91342d6f7",
+        "palette.basic.on-colors.on-complementary.on-danger": "bc361371b962289f5cc93887206efae65134b53b",
+        "palette.basic.on-colors.on-complementary.on-warning": "a7a8f690d6292f18866a7b935a61e4f332cdf10a",
+        "palette.basic.on-colors.on-complementary.on-success": "56981aa36dcefa91701dbd169162b86ac2c51c05",
+        "palette.basic.on-colors.on-complementary.on-info": "b2bcdf16e6da26028b7863c18e26ba0974fc01a0",
+        "palette.basic.stroke.stroke-subtle": "1f0712c7aa049c5d15a1fee1e4f1b60b4624ea15",
+        "palette.basic.stroke.stroke": "a7820672ee397209c8c475d688f5d167c9016de0",
+        "palette.additional.selected state": "b4cfaa2e93c8b079a212e610a2bf80b1af0850d8",
+        "palette.grayscale.grayscale 1": "b1e35cee79ef69bf267e7639c71040d65d6dfebf",
+        "palette.grayscale.grayscale 2": "aff7fe560cda791ba18bb3aeca98f61eeeaeac01",
+        "palette.grayscale.grayscale 3": "835c65ae1bfa2b7576108308ca6926601df4ad02",
+        "palette.grayscale.grayscale 4": "d6596a90c747fa852979fb3a7dff809105b6d713",
+        "palette.grayscale.grayscale 6": "314c7aca4d07092827ceffa9caf40b710cffc23e",
+        "palette.grayscale.grayscale 5": "30985eb10ea787179306a85bdaed7ac54d008536",
+        "palette.interaction-state.hover.primary.primary-base-hover": "a99288e1ead344ba1603b78dcd4a832b84f9a320",
+        "palette.interaction-state.hover.primary.primary-dark-hover": "3c7f8fd3968e6616bbac0bc093406f9577ae3696",
+        "palette.interaction-state.hover.primary.primary-light-hover": "661f03a4f0ec7da926f97e63fa1245d2fc256cb9",
+        "palette.interaction-state.hover.secondary.secondary-base-hover": "c7fefe8a82864be3d1bea935cdf3ba4d60e9b134",
+        "palette.interaction-state.hover.secondary.secondary-dark-hover": "3b6b0a18dd4d8bdfaa4568a606b93aaa664c40dc",
+        "palette.interaction-state.hover.secondary.secondary-light-hover": "b4ef979b91ad3a366aad240180f2dcf1637d8806",
+        "palette.interaction-state.hover.on-colors.on-surface-hover": "68adc2ce6b3e5c28c1fe69d34106f50dcfa8232c",
+        "palette.interaction-state.hover.on-colors.on-surface-subtle-hover": "cea6be8622c1fbf4576ee7e39b5c35020af0d871",
+        "palette.interaction-state.hover.on-colors.on-primary.on-primary-hover": "c53c44e0fbd67356c380ecc0b0f8194d01905cf8",
+        "palette.interaction-state.hover.on-colors.on-primary.on-primary-dark-hover": "fa32a1d39cbf8cff5d77f76755465c13da84a8b7",
+        "palette.interaction-state.hover.on-colors.on-primary.on-primary-light-hover": "c70591579af99f5822d9caea8a91d4f461bc1dd1",
+        "palette.interaction-state.hover.on-colors.on-secondary.on-secondary-hover": "f2d0f33efc2a1d9a3a55e5cdbc5e2170013651b7",
+        "palette.interaction-state.hover.on-colors.on-secondary.on-secondary-dark-hover": "fbd386c6dbf022d8738ed920fc54dcf2fc523971",
+        "palette.interaction-state.hover.on-colors.on-secondary.on-secondary-light-hover": "2663b716dc3df6bcfdac63bd8a49e37037de78e8",
+        "palette.interaction-state.hover.on-colors.on-complementary.on-danger-hover": "585fb0b042b8c01e22e942ebfc3f908c394a240e",
+        "palette.interaction-state.hover.on-colors.on-complementary.on-warning-hover": "a7d48d678c8ee623cb2bbfc567736ed480988acd",
+        "palette.interaction-state.hover.on-colors.on-complementary.on-success-hover": "eca94ae1a1cc971fffdc9698d9fc4e18f562ff78",
+        "palette.interaction-state.hover.on-colors.on-complementary.on-info-hover": "649395858bb2bf4af1f1e0dafcca27f64f774466",
+        "palette.interaction-state.hover.stroke.stroke-hover": "436a1da4359945f109218446aa65a2a99ac5154f",
+        "palette.interaction-state.hover.stroke.strok-subtle-hover": "83ac61e75e95306f1c4c9c528c26623bc11eca84",
+        "palette.interaction-state.hover.complementary.success-hover": "5ed2c47012fe1cc6e34ff2629b83738eab5de36d",
+        "palette.interaction-state.hover.complementary.success-light-hover": "cca03a20eeb63d9170a738fb2c3deecd3cb1e940",
+        "palette.interaction-state.hover.complementary.warning-hover": "39683d1a95376cd7eae876e8c56ca7da88e63025",
+        "palette.interaction-state.hover.complementary.warning-light-hover": "01527ce08da9c2d1fc151b4946533cc385d7404d",
+        "palette.interaction-state.hover.complementary.danger-hover": "41675ec3dfef137705839bb9917d0ffad61be9b9",
+        "palette.interaction-state.hover.complementary.danger-light-hover": "763458c50ca5a7ff00a0687a2cf039d11c7450ef",
+        "palette.interaction-state.hover.complementary.info-hover": "68b0e19c2012000c3b91bbcbcd3aabd3f073576d",
+        "palette.interaction-state.hover.complementary.info-light-hover": "e4cd60dc20665d46f41cd25f8aba1e55d90623f1",
+        "palette.interaction-state.hover.surface-hover": "006fa02508a1560cee066b4bbef903e5444d33de",
+        "palette.interaction-state.hover.background-hover": "aad4ec48534b306aa8a7707e70eb45ff05246105",
+        "palette.interaction-state.pressed.primary.primary-base-pressed": "ed5cfcbf9fc480a90842e2a8ab30ed1d4f0fa337",
+        "palette.interaction-state.pressed.primary.primary-dark-pressed": "3f236d50cb40428a1556c4c5d278851076df813d",
+        "palette.interaction-state.pressed.primary.primary-light-pressed": "4b37844a723dd144ccfed5ea5cbf4697d10b963a",
+        "palette.interaction-state.pressed.secondary.secondary-base-pressed": "2e6cb8e3f0e572eca3e297fb0af1d2da35eea3ef",
+        "palette.interaction-state.pressed.secondary.secondary-dark-pressed": "0717914f65db5cbf2cee15f0a0fe416b6efc9b8a",
+        "palette.interaction-state.pressed.secondary.secondary-light-pressed": "0e7c1bd07c00be5d32aaf477343cf420b1b20d8a",
+        "palette.interaction-state.pressed.on-colors.on-surface-pressed": "9aabcb93b05a470d762c8ec32c1af5a4dd029a97",
+        "palette.interaction-state.pressed.on-colors.on-surface-subtle-pressed": "66827955cfa88a64ccbf5c04f915d0c800908360",
+        "palette.interaction-state.pressed.on-colors.on-primary.on-primary-pressed": "f7df5b6e36eb737bd75a8a713353bed86df2e9e1",
+        "palette.interaction-state.pressed.on-colors.on-primary.on-primary-dark-pressed": "ff8a46bdd0ff3d2bed5c9ce776b3cd5206bb7863",
+        "palette.interaction-state.pressed.on-colors.on-primary.on-primary-light-pressed": "de2939ff270fb1ca620b933bf1d51747eb188cde",
+        "palette.interaction-state.pressed.on-colors.on-secondary.on-secondary-pressed": "f69ed2ec65c8cc49534a29791889a2030d129afe",
+        "palette.interaction-state.pressed.on-colors.on-secondary.on-secondary-dark-pressed": "884c6ee656e0ad93329f3f006e51603b4b01dccf",
+        "palette.interaction-state.pressed.on-colors.on-secondary.on-secondary-light-pressed": "135642d49f40008b14a4407fa8deca29a3b2e930",
+        "palette.interaction-state.pressed.on-colors.on-complementary.on-danger-pressed": "71b98423899f277d2f252e6029773d68de00ae29",
+        "palette.interaction-state.pressed.on-colors.on-complementary.on-warning-pressed": "9b3dd0c2e35522a96f840686813c2c7a846cd818",
+        "palette.interaction-state.pressed.on-colors.on-complementary.on-success-pressed": "501ad213d02874f6eb8d2c9a6a9963e64c1ed6e4",
+        "palette.interaction-state.pressed.on-colors.on-complementary.on-info-pressed": "4067eba7e8e01edc8451a13d196f8ed58afe8c53",
+        "palette.interaction-state.pressed.stroke.stroke-pressed": "6a654da173ff29a065013ffb61e35507d2686c11",
+        "palette.interaction-state.pressed.stroke.strok-subtle-pressed": "12f7211dfdc68e1cca36927b74f30738ba96f8bd",
+        "palette.interaction-state.pressed.complementary.success-pressed": "74cc8e224ed7272cf69b9e2b5908d64c318224c0",
+        "palette.interaction-state.pressed.complementary.success-light-pressed": "9e353844683d2a18c87a1de8e228345c3b269fc5",
+        "palette.interaction-state.pressed.complementary.warning-pressed": "da4cedb0b6c2829d7ce5bc34a140bd09ed05f357",
+        "palette.interaction-state.pressed.complementary.warning-light-pressed": "26ee02045f827793522836b9984a9e250ebebb66",
+        "palette.interaction-state.pressed.complementary.danger-pressed": "de4a4065ded4d3df5687efb7e1498fbda23fd525",
+        "palette.interaction-state.pressed.complementary.danger-light-pressed": "c93df4a61a49b810783fa508df1c417bbe8334c9",
+        "palette.interaction-state.pressed.complementary.info-pressed": "967e56e10fa7a80caa60af88af2db02da5ef8c15",
+        "palette.interaction-state.pressed.complementary.info-light-pressed": "2f5d7385e76b76f7fb3cd7c37770a1f08d2e6c48",
+        "palette.interaction-state.pressed.surface-pressed": "f8a5cd513b6089ed32b774ba6b8258324af5ddce",
+        "palette.interaction-state.pressed.background-pressed": "c43c6362c8079056fc36b1de689ee7e5e715927f",
+        "radius.zero": "7298f79fea31ba4e59b8260ecc842ba37a8c15f0",
+        "radius.extra-small": "2058c6bd878828bd9c993d3dae3404f22bb6e9d5",
+        "radius.small": "8b0110f67aa33ea63de94f890442e7b0589d1d48",
+        "radius.medium": "c35172332f68ec11dfb10280412d2300d4f3041c",
+        "radius.large": "72c5dc5bf62e2cbd01febe51a88b1ab72732de07",
+        "radius.extra-large": "502d9eb0191aa918cce9cee0f46969718ef443c3",
+        "radius.extra-extra-large": "a887bcab84cdd10be74f5f3ed06698356f806031",
+        "radius.full": "0d1dddbd8822a0cd8fba8f0805c398674a0a0450",
+        "strokes.0": "6ea9dffcd81f0b185803899ab077e1ab9b6c1cf2",
+        "strokes.1": "ea75fff39536a1db5bdf0e6f2de7aeecb6006b00",
+        "strokes.2": "7126ff52fcd1cb183780a663fe8373f0c6c4f523",
+        "spacing.component.0": "91ea2e1dd21d5e19f8b5b1ed3de8cbdfa0ec950f",
+        "spacing.component.1": "a814b303ef39260467595b863494a43fc30c1b3a",
+        "spacing.component.2": "dd807f69ed5eac207d2e28fa4a8e364c8da2fdef",
+        "spacing.component.3": "c5c5bfff153c6cd5a2bf8a854decebda7447d55e",
+        "spacing.component.4": "3d70679231d72ee6a17a8770841189792bb15dbe",
+        "spacing.component.5": "f85900b3da2609b67e6944ec9d7044eda58cd21d",
+        "spacing.component.6": "c6c7c8e891c03a85916a7dab234f36748315f03e",
+        "spacing.component.7": "ad674b4eafd25df5874f748c8508e1604d117484",
+        "spacing.component.8": "dfde3bdbd3e543b1040a3011303615c08590f264",
+        "spacing.component.9": "94b4a87927bbca9c5670b20f0583bda7435c4252",
+        "spacing.component.10": "3b757f74f3598ff01cfac9095b5bfeeb9cbf3f82",
+        "spacing.layout.0": "73d69e70736a287443a3a4a13c58320ad8411bed",
+        "spacing.layout.1": "9cd412f3eb81cf33fb337abd63eb67b6ea0c899d",
+        "spacing.layout.2": "fed6e081e8d430bcf31d9ad56ed3d74d5d1c7eaf",
+        "spacing.layout.3": "334b91026e2b83fb5836539f2f264448cdba45a9",
+        "spacing.layout.4": "e8963b18fec89e77595820c0b1d8fe571e036eae",
+        "spacing.layout.5": "8ae57a7e4f76d8260e22c8361769bb9967312b87",
+        "spacing.layout.6": "a80fc74c1b9d278910b0e8a17c5109e874490d55",
+        "spacing.layout.7": "769b5d0ed5d49f1cc81471bfd33a9446609e46e1",
+        "spacing.layout.8": "af7d4d12c24535801f775359c2b3ec74768cac8c",
+        "spacing.layout.9": "8581b02403185290bbc542c4cc5efa1fb1905d04",
+        "spacing.layout.10": "7c23cc92bc7c78ecd25e2f3e56ae86ebc2a3330b",
+        "Sizing.10": "5217ca402ff5f6a1e4e87f4e8e116bdb4704d21c",
+        "Sizing.11": "db3a41b5610b29b364ff13f65592c50585b0ed68",
+        "Sizing.12": "222736e5dc0a5f0633029243082bc04818129b60",
+        "Sizing.13": "b9ef1825514758658fe26752dd6c9b9d813ea496",
+        "Sizing.14": "20c0f35a2fb983a82ee5c064d08ac80c04e1f35f",
+        "Sizing.15": "31da82f49bf9f82939106393e36203ccfb6ad564",
+        "Sizing.16": "e6bf8c2bbcf517035636a52817b28cc4f50e186e",
+        "Sizing.17": "58f6ff1a31b6426e1af624690f461e8eecf1ebdc",
+        "Sizing.18": "e3ea7b360e32af47c4c54a86b02764dd3d22886c",
+        "Sizing.19": "b3d72f12abcea9253cee679c55b9f63f891e36f4",
+        "Sizing.20": "6fdd97857c6fbb07a556b8a6e389a42a7449cf64",
+        "Sizing.01": "482e867a6aa6031e626e943d56b5468b69515b53",
+        "Sizing.02": "5f19871b4649566531d80ca1c2400189ac540fa0",
+        "Sizing.03": "4c0493032c9dd2415645822f5f517f45c668f487",
+        "Sizing.04": "36b2c3be65731009edc610b91bd9c93e74339387",
+        "Sizing.05": "4e34f85b908ad1fc04eeb7fe0b05ab802c20b22c",
+        "Sizing.06": "889a02d45328ef017d0fd598ba68debb794fc40d",
+        "Sizing.07": "d7dbf3aaf72ec7d91d36c701a67d4475207703ae",
+        "Sizing.08": "e410b9b6cc6cb2ad7ffeb4d18760b3d0baddff49",
+        "Sizing.09": "23a50f33e9084b618b656ddaf68a7209605890de",
+        "Sizing.Minimum tapable": "2fe05d6469cd612be1d38c18869b8a0442137333"
+      },
+      "$figmaModeId": "2:1",
+      "$figmaCollectionId": "VariableCollectionId:2:3"
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "Core/Light Mode",
+      "Foundations/WG-Foundations"
+    ]
+  }
+}

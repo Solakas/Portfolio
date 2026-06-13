@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  
+  --font-size-xs: 14pt;
+  --font-size-sm: 15.5pt;
+  --font-size-base: 17pt;
+  --font-size-lg: 19pt;
+  --font-size-xl: 22pt;
+  --font-size-2xl: 26pt;
+  --font-size-3xl: 32pt;
+  --font-size-4xl: 40pt;
+  --font-size-5xl: 52pt;
+  --font-size-6xl: 64pt;
+  --font-size-7xl: 78pt;
+  --font-size-8xl: 92pt;
+  --font-size-9xl: 108pt;
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: min(0.2vw, 2.5px) #18181b;
+    color: transparent;
+  }
+}
+
+/* Native View Transitions Custom Animations */
+@layer base {
+  ::view-transition-old(root) {
+    animation: 220ms cubic-bezier(0.16, 1, 0.3, 1) both fade-out;
+  }
+  ::view-transition-new(root) {
+    animation: 320ms cubic-bezier(0.16, 1, 0.3, 1) both fade-in;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.995);
+    filter: blur(2px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.005);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}

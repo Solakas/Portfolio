@@ -1,0 +1,6 @@
+{
+  "name": "Panos Portfolio",
+  "description": "A responsive, ultra-minimalist portfolio hero section featuring bold typography and modern layouts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

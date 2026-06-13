@@ -1,0 +1,19 @@
+Name,Group
+"""I need the list to look like a clean, well-organized spreadsheet. No hidden columns.”",🗣️ Say
+"""No downloading resumes. I need to see it side-by-side with my notes.""",🗣️ Say
+"""If I select a checkbox, give me my bulk actions instantly—don't make me hunt for a menu.”",🗣️ Say
+"""Keep the action buttons sticky; I shouldn't have to scroll to reject or advance someone.”",🗣️ Say
+"""If they applied before, I need to know immediately before I even open their profile.”",🗣️ Say
+"About Layout: ""How can I set up my screen so everything I need is visible without scrolling or opening new browser tabs?""",🤔 Think
+"About Context: ""I need to know the full story of this candidate—their resume, their GitHub, and their history with our company—all at a single glance.""",🤔 Think
+"About Efficiency: ""The UI should adapt to my actions. It should get out of my way when I'm reading, but be right there when I'm ready to act.""",🤔 Think
+"About Hierarchy: ""The most critical data (Location, Right-to-Work, Current Title) needs to be prioritized visually over secondary data.""",🤔 Think
+"Scans horizontal rows looking for specific data points (Badges for ""Past Applicant"", Location, Title).",🤚🏻 Do
+Relies on persistent left-hand filters to instantly manipulate the main data table without page reloads.,🤚🏻 Do
+Selects multiple checkboxes to trigger the appearance of a floating/sticky bulk-action bar.,🤚🏻 Do
+Navigates a split-screen view: reads the native PDF on the left while simultaneously typing in the right-hand workspace.,🤚🏻 Do
+"Toggles between 'Scorecard', 'Team Notes', and 'History' tabs in the workspace panel without losing sight of the candidate's resume.",🤚🏻 Do
+Empowered by an interface that responds intelligently to their workflow (like dynamic bulk-action bars and sticky headers).,💜 Feel
+"Relieved when all necessary candidate context (social links, historical data, resume) is centralized on one unified screen.",💜 Feel
+"Frustrated by hidden information (e.g., critical data trapped behind ""View More"" toggles or deep dropdown menus).",💜 Feel
+"Confident in making quick hiring decisions because the UI prioritizes scannability and keeps the ""Advance"" and ""Reject"" buttons constantly accessible.",💜 Feel
