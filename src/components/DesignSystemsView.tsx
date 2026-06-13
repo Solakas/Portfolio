@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import SolDesignSystemView from "./SolDesignSystemView";
 import WGDesignSystemView from "./WGDesignSystemView";
+import BorderGlow from "./BorderGlow";
 
 interface DesignSystemsViewProps {
   onBack: () => void;
@@ -183,127 +184,147 @@ export default function DesignSystemsView({ onBack }: DesignSystemsViewProps) {
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 sm:gap-8 lg:gap-8 w-full justify-center">
           {designSystemsData.map((project) => {
             const isHovered = hoveredCardId === project.id;
-            const ProjectIcon = project.icon;
+            const ProjectIcon = project.icon as React.ComponentType<{ className?: string }>;
+
+            const getGlowConfig = (id: string) => {
+              switch (id) {
+                case "sol-ds":
+                  return {
+                    glowColor: "270 80 70",
+                    colors: ['#4f46e5', '#a855f7', '#ec4899']
+                  };
+                case "wg-ds":
+                  return {
+                    glowColor: "210 80 65",
+                    colors: ['#06b6d4', '#2563eb', '#4f46e5']
+                  };
+                default:
+                  return {
+                    glowColor: "40 80 80",
+                    colors: ['#c084fc', '#f472b6', '#38bdf8']
+                  };
+              }
+            };
+            const glowConfig = getGlowConfig(project.id);
 
             return (
               <motion.div
                 key={project.id}
-                onMouseEnter={() => setHoveredCardId(project.id)}
-                onMouseLeave={() => setHoveredCardId(null)}
-                onClick={() => setSelectedProjectId(project.id)}
                 whileHover={{ 
-                  scale: 1.018, 
                   y: -6,
                   transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } 
                 }}
-                className={`group relative overflow-hidden rounded-2xl border ${project.layoutClass} ${
-                  isHovered 
-                    ? "border-zinc-900 bg-white shadow-xl shadow-zinc-100/60" 
-                    : "border-zinc-200 bg-white/65 hover:bg-white backdrop-blur-md"
-                } p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer`}
+                className={`h-full ${project.layoutClass}`}
               >
-                {/* Embedded Vector Decoration / Background effects */}
-                <div 
-                  className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
-                    isHovered 
-                      ? "scale-110 rotate-12 opacity-95" 
-                      : "scale-100 rotate-0 grayscale"
-                  }`}
-                >
-                  <div className={`w-full h-full flex items-center justify-center ${isHovered ? "text-indigo-650" : "text-zinc-300"}`}>
-                    <div 
-                      className="w-full h-full transition-colors duration-500"
-                      style={
+                <BorderGlow
+                      edgeSensitivity={30}
+                      glowColor={glowConfig.glowColor}
+                      backgroundColor={isHovered ? "white" : "rgba(255, 255, 255, 0.65)"}
+                      borderRadius={16}
+                      glowRadius={50}
+                      glowIntensity={0.8}
+                      colors={glowConfig.colors}
+                      onMouseEnter={() => setHoveredCardId(project.id)}
+                      onMouseLeave={() => setHoveredCardId(null)}
+                      onClick={() => setSelectedProjectId(project.id)}
+                      className={`group w-full h-full p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer text-left ${
                         isHovered 
-                          ? { 
-                              color: "transparent",
-                              backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent"
-                            }
-                          : undefined
-                      }
+                          ? "shadow-xl shadow-zinc-100/60 border-zinc-950" 
+                          : "border-zinc-200"
+                      }`}
                     >
-                      {renderVectorDecoration(project.vectorType, isHovered, project.gradient)}
-                    </div>
-                  </div>
-                </div>
+                      {/* Embedded Vector Decoration / Background effects */}
+                      <div 
+                        className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
+                          isHovered 
+                            ? "scale-110 rotate-12 opacity-95" 
+                            : "scale-100 rotate-0 grayscale"
+                        }`}
+                      >
+                        <div className={`w-full h-full flex items-center justify-center ${isHovered ? "text-indigo-650" : "text-zinc-300"}`}>
+                          <div 
+                            className="w-full h-full transition-colors duration-500"
+                            style={
+                              isHovered 
+                                ? { 
+                                    color: "transparent",
+                                    backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent"
+                                  }
+                                : undefined
+                            }
+                          >
+                            {renderVectorDecoration(project.vectorType, isHovered, project.gradient)}
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Subtle outer glow on hover */}
-                {isHovered && (
-                  <motion.div
-                    layoutId={`glow-ds-${project.id}`}
-                    className={`absolute -inset-1 rounded-2xl bg-gradient-to-tr ${project.gradient} opacity-5 blur-xl -z-10`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.08 }}
-                    exit={{ opacity: 0 }}
-                  />
-                )}
-
-                 {/* Top Row / Badges */}
-                <div className="z-10 w-full text-left">
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className={`p-2.5 rounded-xl border transition-all duration-350 ${
-                      isHovered 
-                        ? "bg-[#18181b] border-transparent text-white scale-110 shadow-md" 
-                        : "bg-zinc-100 border-zinc-200 text-zinc-805"
-                    }`}>
-                      <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    
-                    <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded font-mono transition-all duration-300 ${
-                      isHovered 
-                        ? "bg-zinc-900 text-white" 
-                        : "bg-zinc-100 text-zinc-500"
-                    }`}>
-                      {project.badge}
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <span className="text-xs font-bold text-zinc-400 opacity-80 uppercase tracking-widest block select-none">
-                      {project.category}
-                    </span>
-                    <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 pr-8">
-                      {project.title}
-                    </h4>
-                    <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-300 mt-2 max-w-xl ${
-                      isHovered ? "text-zinc-900" : "text-zinc-500"
-                    }`}>
-                      {project.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Description & Tech Footer */}
-                <div className="z-10 mt-8 w-full text-left">
-                  <p className="text-xs sm:text-sm text-zinc-650 leading-relaxed mb-6 max-w-4xl">
-                    {project.description}
-                  </p>
-
-                  <div className="pt-4 border-t border-zinc-150 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
-                      {project.tech.map((t, idx) => (
-                        <span 
-                          key={idx} 
-                          className={`text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                      {/* Top Row / Badges */}
+                      <div className="z-10 w-full text-left">
+                        <div className="flex items-center justify-between mb-4 sm:mb-6">
+                          <div className={`p-2.5 rounded-xl border transition-all duration-350 ${
                             isHovered 
-                              ? "bg-zinc-900 text-white border border-transparent"
-                              : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
-                          }`}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                              ? "bg-[#18181b] border-transparent text-white scale-110 shadow-md" 
+                              : "bg-zinc-100 border-zinc-200 text-zinc-805"
+                          }`}>
+                            <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                          </div>
+                          
+                          <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded font-mono transition-all duration-300 ${
+                            isHovered 
+                              ? "bg-zinc-900 text-white" 
+                              : "bg-zinc-100 text-zinc-500"
+                          }`}>
+                            {project.badge}
+                          </span>
+                        </div>
 
-                    <div className={`transition-all duration-500 transform ${
-                      isHovered ? "translate-x-0.5 -translate-y-0.5 opacity-100 text-zinc-900 scale-110" : "text-zinc-400 opacity-60"
-                    }`}>
-                      <ArrowUpRight className="w-5 h-5" />
-                    </div>
-                  </div>
-                </div>
+                        <div className="space-y-2">
+                          <span className="text-xs font-bold text-zinc-400 opacity-80 uppercase tracking-widest block select-none">
+                            {project.category}
+                          </span>
+                          <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 pr-8">
+                            {project.title}
+                          </h4>
+                          <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-300 mt-2 max-w-xl ${
+                            isHovered ? "text-zinc-900" : "text-zinc-500"
+                          }`}>
+                            {project.subtitle}
+                          </p>
+                        </div>
+                        <p className="text-xs sm:text-sm text-zinc-650 leading-relaxed pt-4 max-w-4xl">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Description & Tech Footer */}
+                      <div className="z-10 mt-8 w-full text-left">
+
+                        <div className="pt-4 border-t border-zinc-150 flex flex-wrap items-center justify-between gap-4">
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
+                            {project.tech.map((t, idx) => (
+                              <span 
+                                key={idx} 
+                                className={`text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                                  isHovered 
+                                    ? "bg-zinc-900 text-white border border-transparent"
+                                    : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
+                                }`}
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className={`transition-all duration-500 transform ${
+                            isHovered ? "translate-x-0.5 -translate-y-0.5 opacity-100 text-zinc-900 scale-110" : "text-zinc-400 opacity-60"
+                          }`}>
+                            <ArrowUpRight className="w-5 h-5" />
+                          </div>
+                        </div>
+                      </div>
+                    </BorderGlow>
               </motion.div>
             );
           })}
