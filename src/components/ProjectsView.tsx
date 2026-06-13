@@ -16,6 +16,7 @@ import PandaHabitsView from "./PandaHabitsView";
 import CareerPulseView from "./CareerPulseView";
 import FuxitView from "./FuxitView";
 import NeonpolisView from "./NeonpolisView";
+import BorderGlow from "./BorderGlow";
 
 interface ProjectsViewProps {
   onBack: () => void;
@@ -342,183 +343,247 @@ export default function ProjectsView({ onBack }: ProjectsViewProps) {
         >
           {projectsData.map((project) => {
             const isHovered = hoveredCardId === project.id;
-            const ProjectIcon = project.icon;
+            const ProjectIcon = project.icon as React.ComponentType<{ className?: string }>;
+
+            const getGlowConfig = (id: string) => {
+              switch (id) {
+                case "proj-1":
+                  return {
+                    glowColor: "220 80 70",
+                    colors: ['#2563eb', '#6366f1', '#06b6d4']
+                  };
+                case "proj-2":
+                  return {
+                    glowColor: "155 80 65",
+                    colors: ['#059669', '#14b8a6', '#064e3b']
+                  };
+                case "proj-3":
+                  return {
+                    glowColor: "235 80 65",
+                    colors: ['#4f46e5', '#3b82f6', '#3730a3']
+                  };
+                case "proj-7":
+                  return {
+                    glowColor: "295 80 70",
+                    colors: ['#9333ea', '#ec4899', '#6366f1']
+                  };
+                case "proj-8":
+                  return {
+                    glowColor: "15 80 65",
+                    colors: ['#f97316', '#f43f5e', '#b91c1c']
+                  };
+                default:
+                  return {
+                    glowColor: "40 80 80",
+                    colors: ['#c084fc', '#f472b6', '#38bdf8']
+                  };
+              }
+            };
+            const glowConfig = getGlowConfig(project.id);
 
             return (
               <motion.div
                 key={project.id}
                 variants={cardVariants}
-                onMouseEnter={() => setHoveredCardId(project.id)}
-                onMouseLeave={() => setHoveredCardId(null)}
-                onClick={() => setSelectedProject(project)}
                 whileHover={{ 
-                  scale: 1.018, 
                   y: -6,
                   transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } 
                 }}
-                className={`group relative overflow-hidden rounded-2xl border ${project.layoutClass} ${
-                  isHovered 
-                    ? "border-zinc-900 bg-white shadow-xl shadow-zinc-100/60" 
-                    : "border-zinc-200 bg-white/65 hover:bg-white backdrop-blur-md"
-                } p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer`}
+                className={`h-full ${project.layoutClass}`}
               >
-                {/* Embedded Colored-To-Grayscale Canvas Graphics (The colorize effect) */}
-                <div 
-                  className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
-                    isHovered 
-                      ? `scale-110 rotate-12 opacity-95 text-transparent bg-clip-text bg-gradient-to-tr ${project.gradient}` 
-                      : "scale-100 rotate-0 grayscale contrast-125 brightness-95 text-zinc-400"
-                  }`}
-                  style={{
-                    backgroundImage: isHovered ? "none" : "",
-                  }}
-                >
-                  {/* If hovered, colors active on the decoration through mask-like styles */}
-                  <div className={`w-full h-full flex items-center justify-center ${isHovered ? `text-orange-500` : "text-zinc-400"}`}>
-                    <div 
-                      className={`w-full h-full transition-colors duration-500 ${
-                        isHovered ? "text-gradient bg-gradient-to-tr " + project.gradient : "text-zinc-300"
-                      }`}
-                      style={
+                <BorderGlow
+                      edgeSensitivity={30}
+                      glowColor={glowConfig.glowColor}
+                      backgroundColor={isHovered ? "white" : "rgba(255, 255, 255, 0.65)"}
+                      borderRadius={16}
+                      glowRadius={50}
+                      glowIntensity={0.8}
+                      colors={glowConfig.colors}
+                      onMouseEnter={() => setHoveredCardId(project.id)}
+                      onMouseLeave={() => setHoveredCardId(null)}
+                      onClick={() => setSelectedProject(project)}
+                      className={`group w-full h-full p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer text-left ${
                         isHovered 
-                          ? { 
-                              color: "transparent",
-                              backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent"
-                            }
-                          : undefined
-                      }
+                          ? "shadow-xl shadow-zinc-100/60 border-zinc-950" 
+                          : "border-zinc-200"
+                      }`}
                     >
-                      {renderVectorDecoration(project.vectorType, isHovered, project.gradient)}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Subtle outer glow that shines colors on hover */}
-                {isHovered && (
-                  <motion.div
-                    layoutId={`glow-${project.id}`}
-                    className={`absolute -inset-1 rounded-2xl bg-gradient-to-tr ${project.gradient} opacity-5 blur-xl -z-10`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.08 }}
-                    exit={{ opacity: 0 }}
-                  />
-                )}
-
-                {/* Top Row / Badges */}
-                <div className="z-10 w-full">
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
-                      isHovered 
-                        ? `bg-[#18181b] border-transparent text-white scale-110 shadow-md` 
-                        : "bg-zinc-100 border-zinc-200 text-zinc-800"
-                    }`}>
-                      <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    
-                    <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded font-mono transition-all duration-300 ${
-                      isHovered 
-                        ? `bg-zinc-900 text-white` 
-                        : "bg-zinc-100 text-zinc-500"
-                    }`}>
-                      {project.badge}
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 pr-8">
-                      {project.title}
-                    </h4>
-                    <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-300 mt-2 max-w-none w-full ${
-                      isHovered ? "text-zinc-900" : "text-zinc-500"
-                    }`}>
-                      {project.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Description & Tech Footer */}
-                <div className="z-10 mt-8 w-full">
-                  {/* Hero card expands description space cleanly */}
-                  {project.id === "proj-1" && (
-                    <div className="space-y-6 mb-6">
-                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed max-w-none w-full">
-                        {project.description}
-                      </p>
-                      
-                      {/* Recruiter-focused SaaS Strategy Board */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5 border-t border-zinc-150">
-                        <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                            <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">SaaS UX METRICS</span>
+                      {/* Embedded Colored-To-Grayscale Canvas Graphics (The colorize effect) */}
+                      <div 
+                        className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
+                          isHovered 
+                            ? `scale-110 rotate-12 opacity-95 text-transparent bg-clip-text bg-gradient-to-tr ${project.gradient}` 
+                            : "scale-100 rotate-0 grayscale contrast-125 brightness-95 text-zinc-400"
+                        }`}
+                        style={{
+                          backgroundImage: isHovered ? "none" : "",
+                        }}
+                      >
+                        {/* If hovered, colors active on the decoration through mask-like styles */}
+                        <div className={`w-full h-full flex items-center justify-center ${isHovered ? `text-orange-500` : "text-zinc-400"}`}>
+                          <div 
+                            className={`w-full h-full transition-colors duration-500 ${
+                              isHovered ? "text-gradient bg-gradient-to-tr " + project.gradient : "text-zinc-300"
+                            }`}
+                            style={
+                              isHovered 
+                                ? { 
+                                    color: "transparent",
+                                    backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent"
+                                  }
+                                : undefined
+                            }
+                          >
+                            {renderVectorDecoration(project.vectorType, isHovered, project.gradient)}
                           </div>
-                          <h5 className="text-sm font-bold text-zinc-950">Recruiter Ergonomics</h5>
-                          <p className="text-xs text-zinc-500 leading-normal font-sans">
-                            Engineered to slash <strong>Time-to-Disposition (TToD)</strong> and context overhead through unified split-screen workspaces and high-density dashboards.
-                          </p>
-                        </div>
-                        
-                        <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                            <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">PROTOTYPING DEPTH</span>
-                          </div>
-                          <h5 className="text-sm font-bold text-zinc-950">Live React / TS Sandbox</h5>
-                          <p className="text-xs text-zinc-500 leading-normal font-sans">
-                            Not just static mockups. Experience a <strong>fully interactive production build</strong> featuring scorecard entries, sticky bulk actions, and active event telemetry.
-                          </p>
-                        </div>
-
-                        <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                            <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">MODERN WORKFLOW</span>
-                          </div>
-                          <h5 className="text-sm font-bold text-zinc-950">Claude Code Execution</h5>
-                          <p className="text-xs text-zinc-500 leading-normal font-sans">
-                            Build-aligned utilizing premium agentic terminal tool synchronization, ensuring 100% token and component state parity under clean standards.
-                          </p>
                         </div>
                       </div>
-                    </div>
-                  )}
 
-                  {/* Smaller cards list condensed snippets on hover */}
-                  {project.id !== "proj-1" && isHovered && (
-                    <motion.p 
-                      initial={{ opacity: 0, y: 4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-xs text-zinc-600 leading-relaxed mb-6 max-w-none w-full"
-                    >
-                      {project.description}
-                    </motion.p>
-                  )}
-
-                  <div className="pt-4 border-t border-zinc-100/80 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
-                      {project.tech.map((t, idx) => (
-                        <span 
-                          key={idx} 
-                          className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                      {/* Top Row / Badges */}
+                      <div className="z-10 w-full">
+                        <div className="flex items-center justify-between mb-4 sm:mb-6">
+                          <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
                             isHovered 
-                              ? "bg-zinc-100/80 text-zinc-900 font-bold border border-zinc-300/40"
-                              : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
-                          }`}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                              ? `bg-[#18181b] border-transparent text-white scale-110 shadow-md` 
+                              : "bg-zinc-100 border-zinc-200 text-zinc-800"
+                          }`}>
+                            <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                          </div>
+                          
+                          <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded font-mono transition-all duration-300 ${
+                            isHovered 
+                              ? `bg-zinc-900 text-white` 
+                              : "bg-zinc-100 text-zinc-500"
+                          }`}>
+                            {project.badge}
+                          </span>
+                        </div>
 
-                    <div className={`transition-all duration-500 transform ${
-                      isHovered ? "translate-x-0.5 -translate-y-0.5 opacity-100 text-zinc-900 scale-110" : "text-zinc-400 opacity-60"
-                    }`}>
-                      <ArrowUpRight className="w-5 h-5" />
-                    </div>
-                  </div>
-                </div>
+                        <div className="space-y-2">
+                          <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 pr-8">
+                            {project.title}
+                          </h4>
+                          <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-300 mt-2 max-w-none w-full ${
+                            isHovered ? "text-zinc-900" : "text-zinc-500"
+                          }`}>
+                            {project.subtitle}
+                          </p>
+                        </div>
+                        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed pt-4 max-w-none w-full">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Description & Tech Footer */}
+                      <div className="z-10 mt-8 w-full">
+                        {/* Hero card expands description space cleanly */}
+                        {project.id === "proj-1" && (
+                          <div className="space-y-6 mb-6">
+                            {/* Recruiter-focused SaaS Strategy Board */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5 border-t border-zinc-150">
+                              <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                                  <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">SaaS UX METRICS</span>
+                                </div>
+                                <h5 className="text-sm font-bold text-zinc-950">Recruiter Ergonomics</h5>
+                                <p className="text-xs text-zinc-500 leading-normal font-sans">
+                                  Engineered to slash <strong>Time-to-Disposition (TToD)</strong> and context overhead through unified split-screen workspaces and high-density dashboards.
+                                </p>
+                              </div>
+                              
+                              <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                  <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">PROTOTYPING DEPTH</span>
+                                </div>
+                                <h5 className="text-sm font-bold text-zinc-950">Live React / TS Sandbox</h5>
+                                <p className="text-xs text-zinc-500 leading-normal font-sans">
+                                  Not just static mockups. Experience a <strong>fully interactive production build</strong> featuring scorecard entries, sticky bulk actions, and active event telemetry.
+                                </p>
+                              </div>
+
+                              <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                                  <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">MODERN WORKFLOW</span>
+                                </div>
+                                <h5 className="text-sm font-bold text-zinc-950">Claude Code Execution</h5>
+                                <p className="text-xs text-zinc-500 leading-normal font-sans">
+                                  Build-aligned utilizing premium agentic terminal tool synchronization, ensuring 100% token and component state parity under clean standards.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Panda Habits extends description space cleanly with USPs */}
+                        {project.id === "proj-2" && (
+                          <div className="space-y-6 mb-6">
+                            {/* Panda Habits USP Board */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5 border-t border-zinc-150">
+                              <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                  <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">HABIT PSYCHOLOGY</span>
+                                </div>
+                                <h5 className="text-sm font-bold text-zinc-950">Psychology Design</h5>
+                                <p className="text-xs text-zinc-500 leading-normal font-sans">
+                                  Uses a psychology-first habit builder that replaces guilt-inducing tracking with mascot-guided streaks and rewarding milestone loops.
+                                </p>
+                              </div>
+                              
+                              <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                                  <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">DESIGN TO CODE</span>
+                                </div>
+                                <h5 className="text-sm font-bold text-zinc-950">Zero-Figma Parity</h5>
+                                <p className="text-xs text-zinc-500 leading-normal font-sans">
+                                  Direct token-to-widget engine integration enforces absolute component parity between the design library assets and the compiled interactive prototype.
+                                </p>
+                              </div>
+
+                              <div className="bg-zinc-50/70 hover:bg-zinc-50/100 border border-zinc-200/50 p-4 rounded-xl transition-all space-y-2 select-none">
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                                  <span className="font-mono text-xs font-semibold text-zinc-400 uppercase tracking-wider">A11y SAFEGUARDS</span>
+                                </div>
+                                <h5 className="text-sm font-bold text-zinc-950">AAA Accessibility Standards</h5>
+                                <p className="text-xs text-zinc-500 leading-normal font-sans">
+                                  Hardcodes strict WCAG 2.1 AAA color contrast validation (15.6:1 ratio) and customizable touch ergonomics into the interactive app layout.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="pt-4 border-t border-zinc-100/80 flex flex-wrap items-center justify-between gap-4">
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
+                            {project.tech.map((t, idx) => (
+                              <span 
+                                key={idx} 
+                                className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                                  isHovered 
+                                    ? "bg-zinc-100/80 text-zinc-900 font-bold border border-zinc-300/40"
+                                    : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
+                                }`}
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className={`transition-all duration-500 transform ${
+                            isHovered ? "translate-x-0.5 -translate-y-0.5 opacity-100 text-zinc-900 scale-110" : "text-zinc-400 opacity-60"
+                          }`}>
+                            <ArrowUpRight className="w-5 h-5" />
+                          </div>
+                        </div>
+                      </div>
+                    </BorderGlow>
               </motion.div>
             );
           })}

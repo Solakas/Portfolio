@@ -18,6 +18,7 @@ import WaveStorefrontView from "./WaveStorefrontView";
 import WaveManagementView from "./WaveManagementView";
 import WavePickerView from "./WavePickerView";
 import AnimatedStatCard from "./AnimatedStatCard";
+import BorderGlow from "./BorderGlow";
 
 interface ProductsViewProps {
   onBack: () => void;
@@ -293,134 +294,163 @@ export default function ProductsView({ onBack }: ProductsViewProps) {
         >
           {liveProductsData.map((project) => {
             const isHovered = hoveredCardId === project.id;
-            const ProjectIcon = project.icon;
+            const ProjectIcon = project.icon as React.ComponentType<{ className?: string }>;
+
+            const getGlowConfig = (id: string) => {
+              switch (id) {
+                case "app":
+                  return {
+                    glowColor: "230 80 70",
+                    colors: ['#4f46e5', '#3b82f6', '#0ea5e9']
+                  };
+                case "storefront":
+                  return {
+                    glowColor: "160 80 65",
+                    colors: ['#059669', '#14b8a6', '#10b981']
+                  };
+                case "management":
+                  return {
+                    glowColor: "38 85 65",
+                    colors: ['#d97706', '#f97316', '#eab308']
+                  };
+                case "picker":
+                  return {
+                    glowColor: "345 80 65",
+                    colors: ['#e11d48', '#ec4899', '#f43f5e']
+                  };
+                default:
+                  return {
+                    glowColor: "40 80 80",
+                    colors: ['#c084fc', '#f472b6', '#38bdf8']
+                  };
+              }
+            };
+            const glowConfig = getGlowConfig(project.id);
 
             return (
               <motion.div
                 key={project.id}
                 variants={cardVariants}
-                onMouseEnter={() => setHoveredCardId(project.id)}
-                onMouseLeave={() => setHoveredCardId(null)}
-                onClick={() => setSelectedProduct(project.id)}
                 whileHover={{ 
-                  scale: 1.018, 
                   y: -6,
                   transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } 
                 }}
-                className={`group relative overflow-hidden rounded-2xl border ${
-                  isHovered 
-                    ? "border-zinc-900 bg-white shadow-xl shadow-zinc-100/60" 
-                    : "border-zinc-200 bg-white/65 hover:bg-white backdrop-blur-md"
-                } p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer w-full text-left`}
+                className="w-full h-full"
               >
-                {/* Embedded Colored-to-Grayscale Canvas Graphics */}
-                <div 
-                  className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
-                    isHovered 
-                      ? `scale-110 rotate-12 opacity-95 text-transparent bg-clip-text bg-gradient-to-tr ${project.gradient}` 
-                      : "scale-100 rotate-0 grayscale contrast-125 brightness-95 text-zinc-400"
-                  }`}
-                  style={{
-                    backgroundImage: isHovered ? "none" : "",
-                  }}
-                >
-                  <div className={`w-full h-full flex items-center justify-center ${isHovered ? `text-indigo-500` : "text-zinc-400"}`}>
-                    <div 
-                      className={`w-full h-full transition-colors duration-500 ${
-                        isHovered ? "text-gradient bg-gradient-to-tr " + project.gradient : "text-zinc-300"
-                      }`}
-                      style={
+                <BorderGlow
+                      edgeSensitivity={30}
+                      glowColor={glowConfig.glowColor}
+                      backgroundColor={isHovered ? "white" : "rgba(255, 255, 255, 0.65)"}
+                      borderRadius={16}
+                      glowRadius={50}
+                      glowIntensity={0.8}
+                      colors={glowConfig.colors}
+                      onMouseEnter={() => setHoveredCardId(project.id)}
+                      onMouseLeave={() => setHoveredCardId(null)}
+                      onClick={() => setSelectedProduct(project.id)}
+                      className={`group w-full h-full p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer text-left ${
                         isHovered 
-                          ? { 
-                              color: "transparent",
-                              backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent"
-                            }
-                          : undefined
-                      }
+                          ? "shadow-xl shadow-zinc-100/60 border-zinc-950" 
+                          : "border-zinc-200"
+                      }`}
                     >
-                      {renderProductVector(project.vectorType, isHovered, project.gradient)}
-                    </div>
-                  </div>
-                </div>
+                      {/* Embedded Colored-to-Grayscale Canvas Graphics */}
+                      <div 
+                        className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
+                          isHovered 
+                            ? `scale-110 rotate-12 opacity-95 text-transparent bg-clip-text bg-gradient-to-tr ${project.gradient}` 
+                            : "scale-100 rotate-0 grayscale contrast-125 brightness-95 text-zinc-400"
+                        }`}
+                        style={{
+                          backgroundImage: isHovered ? "none" : "",
+                        }}
+                      >
+                        <div className={`w-full h-full flex items-center justify-center ${isHovered ? `text-indigo-500` : "text-zinc-400"}`}>
+                          <div 
+                            className={`w-full h-full transition-colors duration-500 ${
+                              isHovered ? "text-gradient bg-gradient-to-tr " + project.gradient : "text-zinc-300"
+                            }`}
+                            style={
+                              isHovered 
+                                ? { 
+                                    color: "transparent",
+                                    backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent"
+                                  }
+                                : undefined
+                            }
+                          >
+                            {renderProductVector(project.vectorType, isHovered, project.gradient)}
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Subtle outer glow that shines colors on hover */}
-                {isHovered && (
-                  <motion.div
-                    layoutId={`glow-${project.id}`}
-                    className={`absolute -inset-1 rounded-2xl bg-gradient-to-tr ${project.gradient} opacity-5 blur-xl -z-10`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.08 }}
-                    exit={{ opacity: 0 }}
-                  />
-                )}
-
-                {/* Card Header & Metadata */}
-                <div className="z-10 w-full">
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
-                      isHovered 
-                        ? `bg-zinc-900 border-transparent text-white scale-110 shadow-md` 
-                        : `${project.iconColor} text-zinc-805`
-                    }`}>
-                      <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    
-                    <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded border font-mono transition-all duration-300 uppercase ${
-                      isHovered 
-                        ? `bg-zinc-900 text-white border-zinc-900` 
-                        : `${project.badgeColor}`
-                    }`}>
-                      {project.badge}
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 flex items-center gap-2">
-                      <span>{project.title}</span>
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-zinc-400" />
-                    </h4>
-                    <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-305 ${
-                      isHovered ? "text-zinc-900" : "text-zinc-500"
-                    }`}>
-                      {project.subtitle}
-                    </p>
-                  </div>
-
-                  <p className="text-zinc-650 text-xs sm:text-sm mt-4 leading-relaxed font-sans max-w-md">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Description & Tech Footer */}
-                <div className="z-10 mt-8 w-full">
-                  <div className="pt-4 border-t border-zinc-200/60 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
-                      {project.tech.map((t, idx) => (
-                        <span 
-                          key={idx} 
-                          className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                      {/* Card Header & Metadata */}
+                      <div className="z-10 w-full">
+                        <div className="flex items-center justify-between mb-4 sm:mb-6">
+                          <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
                             isHovered 
-                              ? "bg-zinc-100 text-zinc-900 font-bold border border-zinc-300/40"
-                              : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
-                          }`}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                              ? `bg-zinc-900 border-transparent text-white scale-110 shadow-md` 
+                              : `${project.iconColor} text-zinc-805`
+                          }`}>
+                            <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                          </div>
+                          
+                          <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded border font-mono transition-all duration-300 uppercase ${
+                            isHovered 
+                              ? `bg-zinc-900 text-white border-zinc-900` 
+                              : `${project.badgeColor}`
+                          }`}>
+                            {project.badge}
+                          </span>
+                        </div>
 
-                    <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-                      <span>{project.statLeft}</span>
-                      <span className="hidden sm:inline-block mx-1.5 opacity-60">|</span>
-                      <span className="font-bold text-zinc-800 text-xs sm:text-[10px]">
-                        {project.statRight}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                        <div className="space-y-2">
+                          <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 flex items-center gap-2">
+                            <span>{project.title}</span>
+                            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-zinc-400" />
+                          </h4>
+                          <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-305 ${
+                            isHovered ? "text-zinc-900" : "text-zinc-500"
+                          }`}>
+                            {project.subtitle}
+                          </p>
+                        </div>
 
+                        <p className="text-zinc-650 text-xs sm:text-sm pt-4 leading-relaxed font-sans max-w-md">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Description & Tech Footer */}
+                      <div className="z-10 mt-8 w-full">
+                        <div className="pt-4 border-t border-zinc-200/60 flex flex-wrap items-center justify-between gap-4">
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
+                            {project.tech.map((t, idx) => (
+                              <span 
+                                key={idx} 
+                                className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                                  isHovered 
+                                    ? "bg-zinc-100 text-zinc-900 font-bold border border-zinc-300/40"
+                                    : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
+                                }`}
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+                            <span>{project.statLeft}</span>
+                            <span className="hidden sm:inline-block mx-1.5 opacity-60">|</span>
+                            <span className="font-bold text-zinc-800 text-xs sm:text-[10px]">
+                              {project.statRight}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </BorderGlow>
               </motion.div>
             );
           })}
