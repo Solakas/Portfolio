@@ -12,6 +12,7 @@ import ProductsView from "./components/ProductsView";
 import ProjectsView from "./components/ProjectsView";
 import DesignSystemsView from "./components/DesignSystemsView";
 import ManifestoView from "./components/ManifestoView";
+import Antigravity from "./components/Antigravity";
 
 interface Splatter {
   x: number;
@@ -496,8 +497,25 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="flex-1 w-full flex flex-col justify-between overflow-visible md:overflow-visible"
+            className="flex-1 w-full flex flex-col justify-between overflow-visible md:overflow-visible relative"
           >
+            {/* Dynamic particle background on home page only */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <Antigravity
+                count={300}
+                magnetRadius={6}
+                ringRadius={7}
+                waveSpeed={0.4}
+                waveAmplitude={1}
+                particleSize={1.5}
+                lerpSpeed={0.05}
+                color={'#FF9FFC'}
+                autoAnimate={false}
+                particleVariance={1}
+                particleShape="tetrahedron"
+                eventSource={mainScrollRef}
+              />
+            </div>
             {/* GIANT CENTER TYPOGRAPHY */}
             <motion.div 
               id="hero-typography-container"
