@@ -355,7 +355,7 @@ export default function App() {
       id="portfolio-container" 
       className={`relative h-auto min-h-screen md:h-screen w-full bg-[#FCFCFC] text-zinc-900 font-sans flex flex-col justify-between pt-6 px-6 sm:pt-8 sm:px-8 md:pt-12 md:px-12 selection:bg-zinc-900 selection:text-white transition-all duration-300 ${
         activeSection === "home" 
-          ? "pb-12 sm:pb-16 md:pb-12 overflow-y-auto md:overflow-y-auto" 
+          ? "pb-0 sm:pb-0 md:pb-0 overflow-y-auto md:overflow-y-auto" 
           : "pb-12 sm:pb-16 md:pb-0 overflow-y-auto md:overflow-hidden"
       }`}
     >
@@ -527,7 +527,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              className="h-fit flex flex-col items-center justify-start pt-8 sm:pt-16 md:pt-24 pb-2 sm:pb-4 select-none z-10 w-full"
+              className="h-fit flex flex-col items-center justify-start pt-4 sm:pt-6 md:pt-[5vh] lg:pt-[6vh] pb-2 sm:pb-3 select-none z-10 w-full"
             >
               <h1 className="text-[12.5vw] sm:text-[11vw] md:text-[9.5vw] lg:text-[10vw] xl:text-[9vw] font-black tracking-tighter uppercase leading-[0.85] text-center w-full flex flex-wrap items-center justify-center gap-x-[2.5vw] select-none text-zinc-900">
                 <motion.span style={{ x: solakidisScrollX }} className="inline-block">
@@ -572,7 +572,7 @@ export default function App() {
               className="w-full max-w-[1400px] mx-auto flex-1 flex flex-col md:flex-row md:items-end justify-between items-center gap-10 md:gap-6 z-20 pb-0 px-0 lg:px-16 xl:px-8 relative"
             >
               {/* Intro Info, KPIs and CTA Button Panel (Left) */}
-              <div className="flex flex-col items-start w-full md:w-auto md:flex-initial max-w-sm md:self-end pb-6 md:pb-10 gap-y-6 sm:gap-y-8">
+              <div className="flex flex-col items-start w-full md:w-auto md:flex-initial max-w-sm md:self-end pb-6 md:pb-10 gap-y-6 sm:gap-y-8 order-1 md:order-none">
                 <div className="flex flex-col items-start w-full">
                   <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 w-full">
                     Product Designer
@@ -655,7 +655,7 @@ export default function App() {
               {/* Middle Portrait Image Container (Center) */}
               <div 
                 ref={containerRef}
-                className="w-full md:flex-1 flex items-end justify-center h-[280px] sm:h-[380px] md:h-[440px] lg:h-[540px] xl:h-[640px] relative px-4 self-end cursor-crosshair group/portrait overflow-hidden rounded-2xl"
+                className="w-full md:flex-1 flex items-end justify-center h-[280px] sm:h-[360px] md:h-[42vh] lg:h-[46vh] xl:h-[52vh] relative px-4 self-end cursor-crosshair group/portrait overflow-hidden rounded-t-2xl rounded-b-none order-3 md:order-none"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
                   lastMousePosRef.current = null;
@@ -672,7 +672,7 @@ export default function App() {
                 {imgError && (
                   <div 
                     id="portrait-placeholder" 
-                    className="absolute inset-x-4 bottom-0 top-0 rounded-2xl bg-gradient-to-t from-zinc-100/60 to-transparent border border-dashed border-zinc-200 flex flex-col items-center justify-center p-4 text-center select-none"
+                    className="absolute inset-x-4 bottom-0 top-0 rounded-t-2xl rounded-b-none bg-gradient-to-t from-zinc-100/60 to-transparent border border-dashed border-zinc-200 flex flex-col items-center justify-center p-4 text-center select-none"
                   >
                     <div className="w-9 h-9 rounded-full bg-zinc-200/50 flex items-center justify-center text-zinc-500 mb-1.5 border border-zinc-200">
                       👤
@@ -683,7 +683,7 @@ export default function App() {
               </div>
 
               {/* Social Connections Pills (Right) */}
-              <div className="flex flex-col items-center md:items-end w-full md:w-auto md:flex-initial gap-3 mt-2 md:mt-0 md:self-end pb-6 md:pb-10">
+              <div className="flex flex-col items-center md:items-end w-full md:w-auto md:flex-initial gap-3 mt-2 md:mt-0 md:self-end pb-6 md:pb-10 order-2 md:order-none">
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 mb-1 lg:mb-2 select-none">
                   Let's connect
                 </h2>
