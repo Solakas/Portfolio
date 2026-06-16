@@ -593,7 +593,7 @@ export default function App() {
               className="w-full max-w-[1400px] mx-auto flex-1 flex flex-col lg:flex-row lg:items-end justify-end lg:justify-between items-center gap-8 sm:gap-12 lg:gap-6 z-20 pb-0 px-0 lg:px-16 xl:px-8 relative"
             >
               {/* Intro Info, KPIs and CTA Button Panel (Left) */}
-              <div className="flex flex-col items-start w-full lg:w-auto lg:flex-initial max-w-sm lg:self-end pb-0 lg:pb-10 gap-y-5 sm:gap-y-6 lg:gap-y-8 order-1 lg:order-none">
+              <div className="flex flex-col items-start w-full lg:w-[350px] lg:shrink-0 lg:self-end pb-0 lg:pb-10 gap-y-5 sm:gap-y-6 lg:gap-y-8 order-1 lg:order-none">
                 <div className="flex flex-col items-start w-full">
                   <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 w-full">
                     Product Designer
@@ -676,7 +676,7 @@ export default function App() {
               {/* Middle Portrait Image Container (Center) */}
               <div 
                 ref={containerRef}
-                className="w-full flex-1 lg:flex-none flex items-end justify-center h-auto lg:h-[46vh] xl:h-[52vh] relative px-4 self-end cursor-crosshair group/portrait overflow-hidden rounded-t-2xl rounded-b-none order-3 lg:order-none"
+                className="w-full flex-1 lg:w-auto lg:flex-1 flex items-end justify-center h-auto lg:h-[46vh] xl:h-[52vh] relative px-4 self-end cursor-crosshair group/portrait overflow-hidden rounded-t-2xl rounded-b-none order-3 lg:order-none"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
                   lastMousePosRef.current = null;
@@ -704,7 +704,7 @@ export default function App() {
               </div>
 
               {/* Social Connections Pills (Right) */}
-              <div className="flex flex-col items-center lg:items-end w-full lg:w-auto lg:flex-initial gap-3 sm:gap-4 mt-0 lg:mt-0 lg:self-end pb-0 lg:pb-10 order-2 lg:order-none">
+              <div className="flex flex-col items-center lg:items-end w-full lg:w-[220px] lg:shrink-0 gap-3 sm:gap-4 mt-0 lg:mt-0 lg:self-end pb-0 lg:pb-10 order-2 lg:order-none">
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-zinc-900 mb-2.5 lg:mb-2 select-none">
                   Let's connect
                 </h2>
