@@ -1251,7 +1251,7 @@ export default function PandaHabitsDeepDive() {
                       <div className="bg-amber-50 border border-amber-100 p-2.5 rounded-xl text-center space-y-1.5 shadow-2xs">
                         <span className="font-mono text-[7.5px] font-extrabold text-amber-705 uppercase block">ACTIVE HAPTICS FEEDBACK TYPE</span>
                         <div className="text-[11px] font-bold text-amber-950 font-sans">
-                          {feedbackType === "vibration" ? "📳 Simulate Tactile Vibration Hum" : feedbackType === "sound" ? "🔊 Sound Frequency Sweep (440Hz)" : "🔕 System Silent Static Guard"}
+                          {feedbackType === "error" ? "📳 Simulate Tactile Vibration Hum" : feedbackType === "success" ? "🔊 Sound Frequency Sweep (440Hz)" : "🔕 System Silent Static Guard"}
                         </div>
                       </div>
                     </div>

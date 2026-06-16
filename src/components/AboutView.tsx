@@ -33,7 +33,7 @@ const timelineContainerVariants = {
       staggerChildren: 0.15
     }
   }
-};
+} as const;
 
 const timelineItemVariants = {
   hidden: { opacity: 0, y: 15 },
@@ -42,7 +42,7 @@ const timelineItemVariants = {
     y: 0, 
     transition: { type: "spring", stiffness: 400, damping: 25 } 
   }
-};
+} as const;
 
 type TabType = "experience" | "skills" | "education";
 
@@ -479,6 +479,78 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                     transition={{ duration: 0.3 }}
                     className="space-y-6"
                   >
+                    <div className="border border-zinc-200/50 bg-white/50 rounded-2xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
+                      <div className="p-3 bg-zinc-100 rounded-xl text-zinc-850">
+                        <Cpu className="w-5 h-5 text-indigo-500/85" />
+                      </div>
+                      <div className="flex-1 space-y-1 text-zinc-650 leading-relaxed">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-zinc-950">
+                            Build a Modern AI-Infused SaaS with Claude Code
+                          </h4>
+                          <span className="text-xs font-mono text-zinc-400">2026</span>
+                        </div>
+                        <p className="font-medium text-xs sm:text-sm text-zinc-500">DesignCourse Certification</p>
+                        <p className="text-xs sm:text-sm pt-2">
+                          Specialized masterclass in building full-stack SaaS applications using Next.js, PostgreSQL, and Claude Code to implement AI capabilities, dynamic editor interfaces, secure authentication, and Stripe integrations.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="border border-zinc-200/50 bg-white/50 rounded-2xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
+                      <div className="p-3 bg-zinc-100 rounded-xl text-zinc-850">
+                        <Sparkles className="w-5 h-5 text-amber-500/80" />
+                      </div>
+                      <div className="flex-1 space-y-1 text-zinc-650 leading-relaxed">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-zinc-950">
+                            Advanced Frontends
+                          </h4>
+                          <span className="text-xs font-mono text-zinc-400">2026</span>
+                        </div>
+                        <p className="font-medium text-xs sm:text-sm text-zinc-500">DesignCourse Certification</p>
+                        <p className="text-xs sm:text-sm pt-2">
+                          Advanced masterclass specializing in interactive motion design, scroll-driven animations with GSAP (ScrollTrigger), parallax layouts, Three.js 3D web interfaces, SVG masking, and fluid web animations.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="border border-zinc-200/50 bg-white/50 rounded-2xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
+                      <div className="p-3 bg-zinc-100 rounded-xl text-zinc-850">
+                        <Terminal className="w-5 h-5" />
+                      </div>
+                      <div className="flex-1 space-y-1 text-zinc-650 leading-relaxed">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-zinc-950">
+                            Interactive JavaScript Fundamentals
+                          </h4>
+                          <span className="text-xs font-mono text-zinc-400">2025</span>
+                        </div>
+                        <p className="font-medium text-xs sm:text-sm text-zinc-500">DesignCourse Certification</p>
+                        <p className="text-xs sm:text-sm pt-2">
+                          Interactive training specializing in core ES6+ syntax, DOM manipulation, custom event-driven interactivity, dark mode configurations, event handlers, and practical algorithmic layout challenges.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="border border-zinc-200/50 bg-white/50 rounded-2xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
+                      <div className="p-3 bg-zinc-100 rounded-xl text-zinc-850">
+                        <Code2 className="w-5 h-5" />
+                      </div>
+                      <div className="flex-1 space-y-1 text-zinc-650 leading-relaxed">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-zinc-950">
+                            CSS for JavaScript Developers
+                          </h4>
+                          <span className="text-xs font-mono text-zinc-400">2025</span>
+                        </div>
+                        <p className="font-medium text-xs sm:text-sm text-zinc-500">Josh W. Comeau (Interactive Course)</p>
+                        <p className="text-xs sm:text-sm pt-2">
+                          Advanced interactive training specializing in core CSS rendering rules, flexbox & grid layouts, relative/absolute positioning, responsive system layout patterns, CSS variables, and fluid transitions/animations.
+                        </p>
+                      </div>
+                    </div>
+
                     <div className="border border-zinc-200/50 bg-white/50 rounded-2xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
                       <div className="p-3 bg-zinc-100 rounded-xl text-zinc-850">
                         <Award className="w-5 h-5" />

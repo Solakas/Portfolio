@@ -13,6 +13,7 @@ import ProjectsView from "./components/ProjectsView";
 import DesignSystemsView from "./components/DesignSystemsView";
 import ManifestoView from "./components/ManifestoView";
 import Antigravity from "./components/Antigravity";
+import LoadingScreen from "./components/LoadingScreen";
 
 interface Splatter {
   x: number;
@@ -114,6 +115,7 @@ function KPICounter({ value, duration = 1200 }: { value: number; duration?: numb
 }
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -350,9 +352,15 @@ export default function App() {
   ];
 
   return (
-    <div 
-      ref={mainScrollRef} 
-      id="portfolio-container" 
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <LoadingScreen onFinished={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+      <div 
+        ref={mainScrollRef} 
+        id="portfolio-container" 
       className={`relative h-auto min-h-screen md:h-screen w-full bg-[#FCFCFC] text-zinc-900 font-sans flex flex-col justify-between pt-6 px-6 sm:pt-8 sm:px-8 md:pt-12 md:px-12 selection:bg-zinc-900 selection:text-white transition-all duration-300 ${
         activeSection === "home" 
           ? "pb-0 sm:pb-0 md:pb-0 overflow-y-auto md:overflow-y-auto" 
@@ -371,23 +379,20 @@ export default function App() {
       <motion.header 
         id="portfolio-header"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isLoading ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="w-full flex items-center justify-between z-40 relative border-b border-zinc-100 pb-6 md:pb-8"
       >
         {/* Left: "open to work" logo/pill */}
-        <motion.a 
-          href="#home"
-          whileHover={{ scale: 1.02, backgroundColor: "rgba(24, 24, 27, 0.05)" }}
-          whileTap={{ scale: 0.98 }}
-          className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-zinc-900 bg-white border border-zinc-250 py-2.5 px-4.5 rounded-full select-none cursor-pointer transition-all shadow-xs"
+        <div 
+          className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-zinc-900 bg-white border border-zinc-250 py-2.5 px-4.5 rounded-full select-none shadow-xs"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
           </span>
           <span>Open to work</span>
-        </motion.a>
+        </div>
 
         {/* Center: Desktop Navigation links */}
         <nav className="hidden md:flex items-center gap-x-1.5 text-sm font-medium text-zinc-650 bg-zinc-100/40 backdrop-blur-md border border-zinc-200/30 rounded-full p-1.5 select-none font-sans">
@@ -524,11 +529,14 @@ export default function App() {
                 scale: heroScrollScale,
                 opacity: heroScrollOpacity
               }}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
               className="h-fit flex flex-col items-center justify-start pt-4 sm:pt-6 md:pt-[5vh] lg:pt-[6vh] pb-2 sm:pb-3 select-none z-10 w-full"
             >
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={isLoading ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+                className="w-full flex flex-col items-center"
+              >
               <h1 className="text-[12.5vw] sm:text-[11vw] md:text-[9.5vw] lg:text-[10vw] xl:text-[9vw] font-black tracking-tighter uppercase leading-[0.85] text-center w-full flex flex-wrap items-center justify-center gap-x-[2.5vw] select-none text-zinc-900">
                 <motion.span style={{ x: solakidisScrollX }} className="inline-block">
                   <motion.span 
@@ -561,14 +569,15 @@ export default function App() {
                   </motion.span>
                 </motion.span>
               </h1>
+              </motion.div>
             </motion.div>
 
             {/* FOOTER SECTION: CONTROLS & META (Main Content Div) */}
             <motion.footer 
               id="portfolio-footer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={isLoading ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               className="w-full max-w-[1400px] mx-auto flex-1 flex flex-col md:flex-row md:items-end justify-between items-center gap-10 md:gap-6 z-20 pb-0 px-0 lg:px-16 xl:px-8 relative"
             >
               {/* Intro Info, KPIs and CTA Button Panel (Left) */}
@@ -762,7 +771,8 @@ export default function App() {
           </div>
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </>
   );
 }
 

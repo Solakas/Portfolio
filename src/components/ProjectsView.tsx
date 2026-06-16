@@ -130,7 +130,7 @@ const cardVariants = {
       ease: [0.16, 1, 0.3, 1] 
     }
   }
-};
+} as const;
 
 export default function ProjectsView({ onBack }: ProjectsViewProps) {
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);

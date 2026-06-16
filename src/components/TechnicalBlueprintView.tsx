@@ -945,22 +945,15 @@ export default function TechnicalBlueprintView({ item, onClose }: TechnicalBluep
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-6 sm:pt-8 md:pt-12 pb-6 md:pb-8 flex items-center justify-between">
           
           {/* Left: "open to work" logo/pill */}
-          <motion.a 
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#home");
-            }}
-            whileHover={{ scale: 1.02, backgroundColor: "rgba(24, 24, 27, 0.05)" }}
-            whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-zinc-900 bg-white border border-zinc-250 py-2.5 px-4.5 rounded-full select-none cursor-pointer transition-all shadow-xs"
+          <div 
+            className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-zinc-900 bg-white border border-zinc-250 py-2.5 px-4.5 rounded-full select-none shadow-xs"
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
             </span>
             <span>Open to work</span>
-          </motion.a>
+          </div>
 
           {/* Center: Desktop Navigation links */}
           <nav className="hidden md:flex items-center gap-x-1.5 text-[14px] font-medium text-zinc-650 bg-zinc-100/40 backdrop-blur-md border border-zinc-200/30 rounded-full p-1.5 select-none font-sans">
