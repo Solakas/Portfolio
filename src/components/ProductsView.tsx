@@ -134,7 +134,7 @@ const cardVariants = {
       ease: [0.16, 1, 0.3, 1] 
     }
   }
-};
+} as const;
 
 export default function ProductsView({ onBack }: ProductsViewProps) {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
