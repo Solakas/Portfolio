@@ -120,6 +120,16 @@ export default function App() {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
+  const [isWebView, setIsWebView] = useState(false);
+
+  useEffect(() => {
+    const checkIsWebView = () => {
+      setIsWebView(window.innerWidth >= 1024);
+    };
+    checkIsWebView();
+    window.addEventListener("resize", checkIsWebView);
+    return () => window.removeEventListener("resize", checkIsWebView);
+  }, []);
 
   // Hash-based router
   useEffect(() => {
@@ -361,10 +371,10 @@ export default function App() {
       <div 
         ref={mainScrollRef} 
         id="portfolio-container" 
-      className={`relative h-auto min-h-screen md:h-screen w-full bg-[#FCFCFC] text-zinc-900 font-sans flex flex-col justify-between pt-6 px-6 sm:pt-8 sm:px-8 md:pt-12 md:px-12 selection:bg-zinc-900 selection:text-white transition-all duration-300 ${
+      className={`relative h-screen w-full bg-[#FCFCFC] text-zinc-900 font-sans flex flex-col justify-between pt-4 px-6 sm:pt-6 sm:px-8 lg:pt-12 lg:px-12 selection:bg-zinc-900 selection:text-white transition-all duration-300 ${
         activeSection === "home" 
-          ? "pb-0 sm:pb-0 md:pb-0 overflow-y-auto md:overflow-y-auto" 
-          : "pb-12 sm:pb-16 md:pb-0 overflow-y-auto md:overflow-hidden"
+          ? "pb-0 overflow-hidden" 
+          : "pb-12 sm:pb-16 lg:pb-0 overflow-y-auto lg:overflow-hidden"
       }`}
     >
       
@@ -381,7 +391,7 @@ export default function App() {
         initial={{ opacity: 0, y: -20 }}
         animate={isLoading ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full flex items-center justify-between z-40 relative border-b border-zinc-100 pb-6 md:pb-8"
+        className="w-full flex items-center justify-between z-40 relative border-b border-zinc-100 pb-3 lg:pb-8"
       >
         {/* Left: "open to work" logo/pill */}
         <div 
@@ -395,7 +405,7 @@ export default function App() {
         </div>
 
         {/* Center: Desktop Navigation links */}
-        <nav className="hidden md:flex items-center gap-x-1.5 text-sm font-medium text-zinc-650 bg-zinc-100/40 backdrop-blur-md border border-zinc-200/30 rounded-full p-1.5 select-none font-sans">
+        <nav className="hidden lg:flex items-center gap-x-1.5 text-sm font-medium text-zinc-650 bg-zinc-100/40 backdrop-blur-md border border-zinc-200/30 rounded-full p-1.5 select-none font-sans">
           {navLinks.map((link, idx) => {
             const cleanHref = link.href.replace("#", "");
             const isActive = cleanHref === activeSection;
@@ -448,7 +458,7 @@ export default function App() {
           {/* Hamburger (Mobile Only) */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className="md:hidden p-2.5 text-zinc-800 bg-zinc-100 rounded-full hover:bg-zinc-200 cursor-pointer transition-colors"
+            className="lg:hidden p-2.5 text-zinc-800 bg-zinc-100 rounded-full hover:bg-zinc-200 cursor-pointer transition-colors"
             title="Toggle menu"
             aria-label="Toggle navigation menu"
           >
@@ -465,7 +475,7 @@ export default function App() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden absolute top-24 left-6 right-6 bg-white border border-zinc-200/80 rounded-2xl shadow-xl z-50 p-6 overflow-hidden flex flex-col gap-6"
+            className="lg:hidden absolute top-24 left-6 right-6 bg-white border border-zinc-200/80 rounded-2xl shadow-xl z-50 p-6 overflow-hidden flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -502,25 +512,27 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="flex-1 w-full flex flex-col justify-between overflow-visible md:overflow-visible relative"
+            className="flex-1 w-full flex flex-col justify-between overflow-visible lg:overflow-visible relative"
           >
-            {/* Dynamic particle background on home page only */}
-            <div className="absolute inset-0 pointer-events-none z-0">
-              <Antigravity
-                count={300}
-                magnetRadius={6}
-                ringRadius={7}
-                waveSpeed={0.4}
-                waveAmplitude={1}
-                particleSize={1.5}
-                lerpSpeed={0.05}
-                color={'#FF9FFC'}
-                autoAnimate={false}
-                particleVariance={1}
-                particleShape="tetrahedron"
-                eventSource={mainScrollRef}
-              />
-            </div>
+            {/* Dynamic particle background on home page only - hidden/disabled on mobile & tablet portrait */}
+            {isWebView && (
+              <div className="absolute inset-0 pointer-events-none z-0">
+                <Antigravity
+                  count={300}
+                  magnetRadius={6}
+                  ringRadius={7}
+                  waveSpeed={0.4}
+                  waveAmplitude={1}
+                  particleSize={1.5}
+                  lerpSpeed={0.05}
+                  color={'#FF9FFC'}
+                  autoAnimate={false}
+                  particleVariance={1}
+                  particleShape="tetrahedron"
+                  eventSource={mainScrollRef}
+                />
+              </div>
+            )}
             {/* GIANT CENTER TYPOGRAPHY */}
             <motion.div 
               id="hero-typography-container"
@@ -529,7 +541,7 @@ export default function App() {
                 scale: heroScrollScale,
                 opacity: heroScrollOpacity
               }}
-              className="h-fit flex flex-col items-center justify-start pt-4 sm:pt-6 md:pt-[5vh] lg:pt-[6vh] pb-2 sm:pb-3 select-none z-10 w-full"
+              className="h-fit flex flex-col items-center justify-start pt-3 sm:pt-6 lg:pt-[5vh] pb-1 sm:pb-2 mb-4 sm:mb-6 lg:mb-0 select-none z-10 w-full"
             >
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -537,7 +549,7 @@ export default function App() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                 className="w-full flex flex-col items-center"
               >
-              <h1 className="text-[12.5vw] sm:text-[11vw] md:text-[9.5vw] lg:text-[10vw] xl:text-[9vw] font-black tracking-tighter uppercase leading-[0.85] text-center w-full flex flex-wrap items-center justify-center gap-x-[2.5vw] select-none text-zinc-900">
+              <h1 className="text-[10.5vw] sm:text-[9.5vw] lg:text-[10vw] xl:text-[9vw] font-black tracking-tighter uppercase leading-[0.85] text-center w-full flex flex-wrap items-center justify-center gap-x-[2.5vw] select-none text-zinc-900">
                 <motion.span style={{ x: solakidisScrollX }} className="inline-block">
                   <motion.span 
                     initial={{ x: -60, opacity: 0, scale: 0.95 }}
@@ -578,10 +590,10 @@ export default function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={isLoading ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="w-full max-w-[1400px] mx-auto flex-1 flex flex-col md:flex-row md:items-end justify-between items-center gap-10 md:gap-6 z-20 pb-0 px-0 lg:px-16 xl:px-8 relative"
+              className="w-full max-w-[1400px] mx-auto flex-1 flex flex-col lg:flex-row lg:items-end justify-end lg:justify-between items-center gap-8 sm:gap-12 lg:gap-6 z-20 pb-0 px-0 lg:px-16 xl:px-8 relative"
             >
               {/* Intro Info, KPIs and CTA Button Panel (Left) */}
-              <div className="flex flex-col items-start w-full md:w-auto md:flex-initial max-w-sm md:self-end pb-6 md:pb-10 gap-y-6 sm:gap-y-8 order-1 md:order-none">
+              <div className="flex flex-col items-start w-full lg:w-auto lg:flex-initial max-w-sm lg:self-end pb-0 lg:pb-10 gap-y-5 sm:gap-y-6 lg:gap-y-8 order-1 lg:order-none">
                 <div className="flex flex-col items-start w-full">
                   <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 w-full">
                     Product Designer
@@ -592,7 +604,7 @@ export default function App() {
                 </div>
 
                 {/* KPIs Section (Center aligned, counting animate) */}
-                <div id="kpis-section" className="grid grid-cols-2 gap-x-10 gap-y-7 w-full text-center select-none justify-center">
+                <div id="kpis-section" className="grid grid-cols-2 gap-x-8 gap-y-4 sm:gap-x-12 sm:gap-y-6 lg:gap-x-10 lg:gap-y-7 w-full text-center select-none justify-center">
                   <motion.a 
                     href="#about"
                     whileHover={{ scale: 1.05 }}
@@ -601,10 +613,10 @@ export default function App() {
                     className="flex flex-col items-center cursor-pointer group focus:outline-none"
                     id="kpi-years-experience"
                   >
-                    <span className="text-5xl sm:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={6} />
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       Years Experience
                     </span>
                   </motion.a>
@@ -617,10 +629,10 @@ export default function App() {
                     className="flex flex-col items-center cursor-pointer group focus:outline-none"
                     id="kpi-live-products"
                   >
-                    <span className="text-5xl sm:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={4} />
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       Live Products
                     </span>
                   </motion.a>
@@ -633,10 +645,10 @@ export default function App() {
                     className="flex flex-col items-center cursor-pointer group focus:outline-none"
                     id="kpi-design-systems"
                   >
-                    <span className="text-5xl sm:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={3} />
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       Design Systems
                     </span>
                   </motion.a>
@@ -649,10 +661,10 @@ export default function App() {
                     className="flex flex-col items-center cursor-pointer group focus:outline-none"
                     id="kpi-ai-projects"
                   >
-                    <span className="text-5xl sm:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={6} />
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       AI Projects
                     </span>
                   </motion.a>
@@ -664,7 +676,7 @@ export default function App() {
               {/* Middle Portrait Image Container (Center) */}
               <div 
                 ref={containerRef}
-                className="w-full md:flex-1 flex items-end justify-center h-[280px] sm:h-[360px] md:h-[42vh] lg:h-[46vh] xl:h-[52vh] relative px-4 self-end cursor-crosshair group/portrait overflow-hidden rounded-t-2xl rounded-b-none order-3 md:order-none"
+                className="w-full flex-1 lg:flex-none flex items-end justify-center h-auto lg:h-[46vh] xl:h-[52vh] relative px-4 self-end cursor-crosshair group/portrait overflow-hidden rounded-t-2xl rounded-b-none order-3 lg:order-none"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
                   lastMousePosRef.current = null;
@@ -692,11 +704,11 @@ export default function App() {
               </div>
 
               {/* Social Connections Pills (Right) */}
-              <div className="flex flex-col items-center md:items-end w-full md:w-auto md:flex-initial gap-3 mt-2 md:mt-0 md:self-end pb-6 md:pb-10 order-2 md:order-none">
-                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 mb-1 lg:mb-2 select-none">
+              <div className="flex flex-col items-center lg:items-end w-full lg:w-auto lg:flex-initial gap-3 sm:gap-4 mt-0 lg:mt-0 lg:self-end pb-0 lg:pb-10 order-2 lg:order-none">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-zinc-900 mb-2.5 lg:mb-2 select-none">
                   Let's connect
                 </h2>
-                <div className="flex flex-row md:flex-col items-center justify-center md:items-end w-full gap-3 pb-6 md:pb-0">
+                <div className="flex flex-row lg:flex-col items-center justify-center lg:items-end w-full gap-4 pb-0 lg:pb-0">
                   <motion.a
                     href="https://www.linkedin.com/in/solakidis-panagiotis-830b69326/"
                     target="_blank"
