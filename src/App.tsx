@@ -616,7 +616,7 @@ export default function App() {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={6} />
                     </span>
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs lg:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 lg:mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       Years Experience
                     </span>
                   </motion.a>
@@ -632,7 +632,7 @@ export default function App() {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={4} />
                     </span>
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs lg:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 lg:mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       Live Products
                     </span>
                   </motion.a>
@@ -648,7 +648,7 @@ export default function App() {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={3} />
                     </span>
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs lg:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 lg:mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       Design Systems
                     </span>
                   </motion.a>
@@ -664,7 +664,7 @@ export default function App() {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-none group-hover:text-zinc-950 transition-colors">
                       <KPICounter value={6} />
                     </span>
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
+                    <span className="text-[10px] sm:text-xs lg:text-xs font-bold uppercase tracking-widest text-zinc-500 mt-1.5 lg:mt-2 whitespace-nowrap group-hover:text-zinc-800 transition-colors">
                       AI Projects
                     </span>
                   </motion.a>
@@ -708,7 +708,7 @@ export default function App() {
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-zinc-900 mb-2.5 lg:mb-2 select-none">
                   Let's connect
                 </h2>
-                <div className="flex flex-row lg:flex-col items-center justify-center lg:items-end w-full gap-4 pb-0 lg:pb-0">
+                <div className="flex flex-row lg:flex-col items-center justify-center lg:items-end w-full gap-4 lg:gap-3 pb-0 lg:pb-0">
                   <motion.a
                     href="https://www.linkedin.com/in/solakidis-panagiotis-830b69326/"
                     target="_blank"
