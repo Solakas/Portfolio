@@ -122,6 +122,15 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isWebView, setIsWebView] = useState(false);
 
+  const trackConversion = (eventName: string, label: string) => {
+    if (typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", eventName, {
+        event_category: "engagement",
+        event_label: label,
+      });
+    }
+  };
+
   useEffect(() => {
     const checkIsWebView = () => {
       setIsWebView(window.innerWidth >= 1024);
@@ -447,6 +456,7 @@ export default function App() {
           <motion.a 
             id="lets-talk-btn"
             href="mailto:solakidisp@gmail.com"
+            onClick={() => trackConversion('contact_click', 'email')}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="group hidden sm:flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-sm py-2.5 px-6 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
@@ -493,7 +503,10 @@ export default function App() {
 
             <a 
               href="mailto:solakidisp@gmail.com"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                trackConversion('contact_click', 'email');
+              }}
               className="flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-3.5 rounded-xl transition-colors cursor-pointer"
             >
               <span>Contact</span>
@@ -714,6 +727,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Connect on LinkedIn"
+                    onClick={() => trackConversion('social_click', 'linkedin')}
                     whileHover={{ scale: 1.02, borderColor: "#18181b", backgroundColor: "#fafafa" }}
                     whileTap={{ scale: 0.98 }}
                     className="rounded-full border border-zinc-200 hover:border-zinc-900 hover:text-zinc-900 text-zinc-700 font-semibold text-xs sm:text-sm h-11 px-5 flex items-center justify-center gap-2.5 transition-all cursor-pointer bg-white/60 backdrop-blur-xs shadow-xs w-full sm:w-auto md:w-40 text-center"
@@ -727,6 +741,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Follow on GitHub"
+                    onClick={() => trackConversion('social_click', 'github')}
                     whileHover={{ scale: 1.02, borderColor: "#18181b", backgroundColor: "#fafafa" }}
                     whileTap={{ scale: 0.98 }}
                     className="rounded-full border border-zinc-200 hover:border-zinc-900 hover:text-zinc-900 text-zinc-700 font-semibold text-xs sm:text-sm h-11 px-5 flex items-center justify-center gap-2.5 transition-all cursor-pointer bg-white/60 backdrop-blur-xs shadow-xs w-full sm:w-auto md:w-40 text-center"
@@ -740,6 +755,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Subscribe on YouTube"
+                    onClick={() => trackConversion('social_click', 'youtube')}
                     whileHover={{ scale: 1.02, borderColor: "#18181b", backgroundColor: "#fafafa" }}
                     whileTap={{ scale: 0.98 }}
                     className="rounded-full border border-zinc-200 hover:border-zinc-900 hover:text-zinc-900 text-zinc-700 font-semibold text-xs sm:text-sm h-11 px-5 flex items-center justify-center gap-2.5 transition-all cursor-pointer bg-white/60 backdrop-blur-xs shadow-xs w-full sm:w-auto md:w-40 text-center"
