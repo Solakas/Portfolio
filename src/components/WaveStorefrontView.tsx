@@ -56,7 +56,7 @@ export default function WaveStorefrontView({ onClose, onPrev, onNext }: WaveStor
       title="Wave Grocery Web App"
       category="Responsive E-commerce Storefront"
       badge="LIVE WEB PLATFORM"
-      subtitle="Designing high-conversion responsive web e-commerce storefronts supporting massive product catalogs, customizable food preparation preferences, and deep ERP integration."
+      subtitle="Designing responsive web e-commerce storefronts supporting product catalogs, custom food preparation settings, and ERP integration."
       tenantUrl="https://www.thanopoulos.gr/"
       tenantUrlLabel="Thanopoulos App"
       tenantUrl2="https://www.lamartfood.co.uk/"
@@ -170,10 +170,10 @@ export default function WaveStorefrontView({ onClose, onPrev, onNext }: WaveStor
             
             <div className="space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-900 leading-snug max-w-5xl">
-                Balancing complex corporate inventory with <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">humble and intuitive consumer usability</span>.
+                Balancing inventory complexity with <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">user-friendly web layouts</span>.
               </h2>
               <p className="text-zinc-640 text-sm sm:text-base leading-relaxed max-w-4xl font-sans">
-                For a hiring manager analyzing complex SaaS capabilities, this storefront showcases my expertise in transactional UX design. Shopping for groceries is physically exhausting, and digitizing it can amplify friction if customers are faced with stock anomalies or dense layout grids. I focused on humanizing the interface—automating predictive search, building seamless preparation custom toggles directly on the card drawers, and mitigating stockouts.
+                This storefront demonstrates my focus on transactional UX design. Online grocery shopping can be frustrating if catalogs are confusing or items are out of stock. I worked on reducing this friction by designing predictive search, adding preparation options directly in the cart, and handling out-of-stock items gracefully.
               </p>
             </div>
           </div>

@@ -35,8 +35,8 @@ const designSystemsData: DesignSystemProject[] = [
     id: "sol-ds",
     title: "Sol Design System",
     category: "AI-Powered Components & Code Hub",
-    subtitle: "Pioneering design-to-code parity using meticulous 3-tier token structures and automated AI generation.",
-    description: "Architected a unified design ecosystem bridging Figma layouts with React using Anthropic's Claude Code. Refactored structural variance properties, nesting 3,500+ high-fidelity assets and custom tokens under a single-source-of-truth style pipeline. Reduced layout-related QA errors by 40% and accelerated feature delivery by 3.5x.",
+    subtitle: "Design-to-code alignment using a 3-tier design token structure.",
+    description: "Created a system linking Figma layouts to React components. Defined custom tokens and components to keep layouts consistent. This alignment reduced layout issues and sped up UI prototyping.",
     tech: ["Figma Variables API", "Style Dictionary", "Tailwind Theme CSS", "Storybook Workspace", "Claude Code"],
     gradient: "from-indigo-600 via-purple-650 to-pink-550",
     badge: "CLAUDE INTEGRATION",
@@ -48,8 +48,8 @@ const designSystemsData: DesignSystemProject[] = [
     id: "wg-ds",
     title: "Wave Grocery Design System",
     category: "Multi-Tenant Token Framework",
-    subtitle: "Powering multi-brand e-commerce web, mobile native layouts, and transactional tools from a single library.",
-    description: "Organized 146 published component modules across vertical Foundations, Patterns, and Journeys. Designed a unidirectional 409-token schema enabling entire brand skin swaps (e.g., Greta vs. Gigo) in minutes by modifying only 22 core primary/secondary values. Accelerated design team discoverability by 90% with custom clickable indexes.",
+    subtitle: "Powering multi-brand storefronts and operations apps from a single component library.",
+    description: "Organized 146 components across layout foundations and interface patterns. Created a design token structure enabling brand customizations (colors, typography, border shapes) by altering key theme variables.",
     tech: ["Multi-Tenant Architecture", "Tokens Studio", "Responsive grids", "TOC Hyperlinks Map", "POS Alignments"],
     gradient: "from-cyan-500 via-blue-600 to-indigo-600",
     badge: "MULTI-BRAND CORE",
@@ -60,13 +60,38 @@ const designSystemsData: DesignSystemProject[] = [
 ];
 
 export default function DesignSystemsView({ onBack }: DesignSystemsViewProps) {
+  const getProjectIdFromHash = () => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash.startsWith("#design-systems/")) {
+      return hash.replace("#design-systems/", "");
+    }
+    return null;
+  };
+
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(getProjectIdFromHash());
+
+  React.useEffect(() => {
+    const handleHash = () => {
+      setSelectedProjectId(getProjectIdFromHash());
+    };
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  const selectProjectAndSetHash = (projectId: string | null) => {
+    if (projectId) {
+      window.location.hash = `#design-systems/${projectId}`;
+    } else {
+      window.location.hash = `#design-systems`;
+    }
+    setSelectedProjectId(projectId);
+  };
 
   if (selectedProjectId) {
-    const handleClose = () => setSelectedProjectId(null);
-    const onPrev = selectedProjectId === "wg-ds" ? () => setSelectedProjectId("sol-ds") : undefined;
-    const onNext = selectedProjectId === "sol-ds" ? () => setSelectedProjectId("wg-ds") : undefined;
+    const handleClose = () => selectProjectAndSetHash(null);
+    const onPrev = selectedProjectId === "wg-ds" ? () => selectProjectAndSetHash("sol-ds") : undefined;
+    const onNext = selectedProjectId === "sol-ds" ? () => selectProjectAndSetHash("wg-ds") : undefined;
 
     if (selectedProjectId === "sol-ds") {
       return <SolDesignSystemView onClose={handleClose} onPrev={onPrev} onNext={onNext} />;
@@ -226,7 +251,7 @@ export default function DesignSystemsView({ onBack }: DesignSystemsViewProps) {
                       colors={glowConfig.colors}
                       onMouseEnter={() => setHoveredCardId(project.id)}
                       onMouseLeave={() => setHoveredCardId(null)}
-                      onClick={() => setSelectedProjectId(project.id)}
+                      onClick={() => selectProjectAndSetHash(project.id)}
                       className={`group w-full h-full p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer text-left ${
                         isHovered 
                           ? "shadow-xl shadow-zinc-100/60 border-zinc-950" 

@@ -56,7 +56,7 @@ export default function WaveMobileAppView({ onClose, onPrev, onNext }: WaveMobil
       title="Wave Grocery Mobile App"
       category="Multi-Brand Native Applications"
       badge="LIVE B2B2C MOBILE SUITE"
-      subtitle="Designing high-yielding native iOS and Android white-label experiences powered by a centralized token variable design system that scales seamlessly across multiple retail brands."
+      subtitle="Designing native iOS and Android white-label apps using a centralized design system that scales across multiple retail brands."
       tenantUrl="https://apps.apple.com/gr/app/thanopoulos/id6477913151?l=el"
       tenantUrlLabel="Thanopoulos (iOS)"
       tenantUrl2="https://play.google.com/store/apps/details?id=uk.lamart.store"
@@ -170,10 +170,10 @@ export default function WaveMobileAppView({ onClose, onPrev, onNext }: WaveMobil
             
             <div className="space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-900 leading-snug max-w-5xl">
-                A design system focusing on <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">extreme operational speed & brand diversity</span>.
+                A design system focusing on <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">fast deployment and brand customization</span>.
               </h2>
               <p className="text-zinc-640 text-sm sm:text-base leading-relaxed max-w-4xl font-sans">
-                For a hiring manager, this project demonstrates my ability to design scalable, platform-agnostic architectures. Instead of approaching mobile design as isolated static views, I treated it as a systemic, configurable engineering pipeline. By structuring the design system tokens at a foundational level, we empowered non-technical deployment managers to generate beautifully unique applications. 
+                This project shows how to design scalable, platform-agnostic architectures. Instead of treating mobile design as static screens, we built a configurable design system. By structuring design system tokens at the foundation, we allowed the team to deploy customized brand experiences without rewriting code.
               </p>
             </div>
           </div>

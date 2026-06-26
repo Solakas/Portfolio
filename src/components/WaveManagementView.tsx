@@ -56,7 +56,7 @@ export default function WaveManagementView({ onClose, onPrev, onNext }: WaveMana
       title="Wave Grocery Admin Panel"
       category="B2B SaaS Admin Panel & CMS"
       badge="LIVE OPERATIONAL SUITE"
-      subtitle="Refactoring complex warehouse settings, logistics timeslots, role-based workflows, and product marketing catalogs into a clean, unified supermarket operations dashboard."
+      subtitle="Rebuilding complex warehouse configurations, logistics slots, roles, and flyers into a clean operations dashboard."
       productPageUrl="https://www.wavegrocery.com/management-software-for-online-grocery-business"
       onClose={onClose}
       onPrev={onPrev}
@@ -166,10 +166,10 @@ export default function WaveManagementView({ onClose, onPrev, onNext }: WaveMana
             
             <div className="space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-900 leading-snug max-w-5xl">
-                Reducing complex logistical settings into a <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">foolproof operational workspace</span>.
+                Simplifying logistics settings into a <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">clear dashboard</span>.
               </h2>
               <p className="text-zinc-640 text-sm sm:text-base leading-relaxed max-w-4xl font-sans">
-                For a hiring manager evaluating heavy B2B SaaS system capabilities, this management suite proves my mastery over high-capacity enterprise layout logic. Instead of nesting operational rules in endless preference tables, I simplified the interface so store operators can complete tasks with confidence and zero friction, drastically reducing onboarding and corporate overhead.
+                This management suite shows how I approach complex enterprise layout logic. Instead of nesting settings in endless preference tables, I redesigned the interface so store operators can complete tasks quickly and with fewer errors, reducing onboarding and operational overhead.
               </p>
             </div>
           </div>

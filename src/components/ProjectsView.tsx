@@ -41,8 +41,8 @@ const projectsData: Project[] = [
     id: "proj-1",
     title: "Apply Now",
     category: "Featured B2B SaaS Product Design",
-    subtitle: "Enterprise Applicant Tracking System (ATS) eliminating high-volume recruitment click fatigue via a unified split-screen workspace, built with Claude Code & backed by a live telemetry-tracked React prototype.",
-    description: "Formulated through a structured 5-stage SaaS UX process (Analyse → Define → Ideate → Test → Measure) to solve real business bottlenecks. Features high-density data visualizations, quick bulk progressions, and zero context switching workflows. Proves mastery over commercial SaaS metrics, design token parity via Sol Design System, and modern software-engineering disciplines.",
+    subtitle: "An Applicant Tracking System (ATS) designed to speed up recruitment by using a split-screen workspace, built with a React prototype.",
+    description: "Designed using user research to solve recruitment bottlenecks. Features data visualizations, quick bulk actions, and side-by-side split screens. Integrates design system tokens with React code.",
     tech: ["B2B SaaS Design", "Claude Code Engine", "Live React Prototype", "Telemetry (Firebase Logs)", "Sol Design System", "UX Case Study"],
     gradient: "from-blue-600 via-indigo-500 to-cyan-500",
     badge: "React SaaS App",
@@ -54,8 +54,8 @@ const projectsData: Project[] = [
     id: "proj-2",
     title: "Panda Habits",
     category: "AI Powered Nutrition Coach",
-    subtitle: "Psychology-first habit builder and food diary built dynamically with an atomic code-driven design system. Replaces guilt-inducing spreadsheets with mascot-guided micro-streaks.",
-    description: "Formulated through a Zero-Figma workflow with exact token-to-widget parity. Enforces WCAG 2.1 AAA hardcoded accessibility contrast checks (15.6:1 ratio) and customizable touch physics inside a companion interactive React simulator.",
+    subtitle: "A habit builder and food diary app that uses gamification and micro-streaks to help users stay on track.",
+    description: "Built using a code-first design process with exact token alignment. Features high-contrast accessibility (WCAG AAA compliance) and customizable animation physics.",
     tech: ["Cursor", "Google Antigravity", "Flutter App", "Psychology Design", "A11y (WCAG AAA)", "Zero-Figma Flow"],
     gradient: "from-emerald-600 via-teal-500 to-emerald-800",
     badge: "Android Flutter App",
@@ -67,8 +67,8 @@ const projectsData: Project[] = [
     id: "proj-3",
     title: "CareerPulse",
     category: "AI Career Advisor",
-    subtitle: "AI-powered job decision engine that translates opaque corporate postings into personalized match matrices, risk analyses, and prep worksheets.",
-    description: "Leverages Google Gemini Structured Outputs to cross-reference unstructured job descriptions against developer profiles. Generates objective Match Scores (0-100%), auto-synthesizes risk/reward friction alerts, and extracts day-to-day role realities to bypass application fatigue.",
+    subtitle: "An AI-powered assistant that compares job postings with your profile to generate match scores and prep worksheets.",
+    description: "Uses Gemini to analyze job descriptions against developer profiles. Calculates match scores, flags potential role risks, and extracts daily task expectations.",
     tech: ["Google AI Studio", "Back Office", "AI Assistant", "Gemini 2.5", "Firebase Auth"],
     gradient: "from-indigo-600 via-blue-500 to-indigo-800",
     badge: "AI CAREER COACH",
@@ -80,8 +80,8 @@ const projectsData: Project[] = [
     id: "proj-7",
     title: "fUXit",
     category: "AI Design Consultant",
-    subtitle: "Sophisticated web application leveraging Google's Gemini to provide instant, expert-level UI/UX feedback on any application screenshot as a professional co-pilot.",
-    description: "At its core, fUXit sends user-uploaded screenshots to the Gemini 2.5 Flash model inside structured JSON payloads. Instructs the AI to act as a senior UI/UX expert and return annotated image pinpoint coordinates, dynamic heuristic scores across core design pillars, and copy-pasteable markdown violation lists compiled in a seamless dark client interface.",
+    subtitle: "A web application that uses Gemini to analyze screenshots and provide UI/UX feedback.",
+    description: "Upload a screenshot to get automated UI/UX reviews, heuristic scores, and actionable markdown checklists powered by Gemini Flash.",
     tech: ["Google AI Studio", "Gemini 2.5", "AI Assistant", "Design Critique"],
     gradient: "from-purple-600 via-pink-500 to-indigo-500",
     badge: "AI Design Assistant",
@@ -93,8 +93,8 @@ const projectsData: Project[] = [
     id: "proj-8",
     title: "Neonpolis",
     category: "AI Game Co-Designer",
-    subtitle: "Translating character effects, mechanics rules, and physical board-game table-feel into a playable, responsive browser prototype powered by ChatGPT and Figma integration.",
-    description: "Born from an excitement for game design methodologies. Translates King of Tokyo's fast, tactile table-feel to the browser, optimizing card systems, UI readability scales, dynamic 3-roll dice loops, and custom-mapped visual rules matrices.",
+    subtitle: "A web prototype of a board game, translating physical game mechanics and card systems to a digital interface.",
+    description: "Translates board game mechanics to the browser, focusing on clear UI scaling, dice animation loops, and interactive game states.",
     tech: ["Figma Make", "Cursor", "Interaction Design", "Game Design"],
     gradient: "from-orange-500 via-rose-500 to-red-650",
     badge: "BOARD GAME MVP",
@@ -133,14 +133,41 @@ const cardVariants = {
 } as const;
 
 export default function ProjectsView({ onBack }: ProjectsViewProps) {
+  const getProjectFromHash = () => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash.startsWith("#ai-projects/")) {
+      const slug = hash.replace("#ai-projects/", "");
+      return projectsData.find(p => p.id === slug || p.title.toLowerCase().replace(/\s+/g, "-") === slug) || null;
+    }
+    return null;
+  };
+
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(getProjectFromHash());
+
+  React.useEffect(() => {
+    const handleHash = () => {
+      setSelectedProject(getProjectFromHash());
+    };
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  const selectProjectAndSetHash = (project: Project | null) => {
+    if (project) {
+      const slug = project.title.toLowerCase().replace(/\s+/g, "-");
+      window.location.hash = `#ai-projects/${slug}`;
+    } else {
+      window.location.hash = `#ai-projects`;
+    }
+    setSelectedProject(project);
+  };
 
   if (selectedProject) {
     const currentIndex = projectsData.findIndex(p => p.id === selectedProject.id);
-    const onPrev = currentIndex > 0 ? () => setSelectedProject(projectsData[currentIndex - 1]) : undefined;
-    const onNext = currentIndex < projectsData.length - 1 ? () => setSelectedProject(projectsData[currentIndex + 1]) : undefined;
-    const handleClose = () => setSelectedProject(null);
+    const onPrev = currentIndex > 0 ? () => selectProjectAndSetHash(projectsData[currentIndex - 1]) : undefined;
+    const onNext = currentIndex < projectsData.length - 1 ? () => selectProjectAndSetHash(projectsData[currentIndex + 1]) : undefined;
+    const handleClose = () => selectProjectAndSetHash(null);
 
     switch (selectedProject.id) {
       case "proj-1":
@@ -401,7 +428,7 @@ export default function ProjectsView({ onBack }: ProjectsViewProps) {
                       colors={glowConfig.colors}
                       onMouseEnter={() => setHoveredCardId(project.id)}
                       onMouseLeave={() => setHoveredCardId(null)}
-                      onClick={() => setSelectedProject(project)}
+                      onClick={() => selectProjectAndSetHash(project)}
                       className={`group w-full h-full p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer text-left ${
                         isHovered 
                           ? "shadow-xl shadow-zinc-100/60 border-zinc-950" 

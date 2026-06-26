@@ -68,7 +68,7 @@ export default function ApplyNowView({ onClose, onPrev, onNext }: ApplyNowViewPr
       title="Apply Now"
       category="Recruiting SaaS"
       badge="LIVE PROJECT"
-      subtitle="Refactoring high-volume applicant screening into a responsive, single-page split-view canvas that reduces recruitment click fatigue by 40%."
+      subtitle="An applicant screening tool designed as a single-page split-view workspace to reduce click fatigue."
       githubUrl="https://github.com/Solakas/Apply-Now-Platform"
       liveUrl="https://apply-now-platform-oysw.vercel.app/"
       figmaUrl="https://www.figma.com/design/Y2T29E74yMo2533yMVmJIg/Apply-Now-Platform?node-id=1-835"
@@ -177,16 +177,16 @@ export default function ApplyNowView({ onClose, onPrev, onNext }: ApplyNowViewPr
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-12 space-y-4">
               <h2 className="text-2xl sm:text-3xl font-extrabold font-sans tracking-tight text-zinc-950 leading-tight">
-                Framing the Human Challenge.
+                Designing for Recruiters and Managers.
               </h2>
             </div>
             
             <div className="lg:col-span-6 space-y-6">
               <p className="text-zinc-650 text-sm sm:text-base leading-relaxed">
-                Recruiters are stuck in a relentless balancing act. High-volume hiring campaigns require lightning-fast, zero-friction filtering, while key engineering team roles demand context-rich, collaborative scorecards.
+                Recruiters need to filter applications quickly, while hiring managers require detailed scorecards and candidate info.
               </p>
               <p className="text-zinc-650 text-sm sm:text-base leading-relaxed">
-                Our first qualitative round of interviews mapped extreme user profiles to isolate core workspace layout friction points. We synthesized raw quotes into a unified design blueprint with two clear mandates: completely eradicate click fatigue and enable a secure, native side-by-side evaluation grid.
+                To understand their needs, we interviewed recruiters and managers to map layout pain points. Based on their feedback, we focused on two main requirements: reducing the number of clicks needed to view information and enabling a side-by-side evaluation grid.
               </p>
             </div>
 

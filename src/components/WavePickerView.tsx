@@ -56,7 +56,7 @@ export default function WavePickerView({ onClose, onPrev, onNext }: WavePickerVi
       title="Wave Grocery Picker App"
       category="Android Picking & Fulfillment"
       badge="FRONT-LINE UTILITY"
-      subtitle="Shadowing retail pickers in physical aisles, translating frontline workplace exhaustion into a high-performance Android utility that optimizes physical effort and accuracy."
+      subtitle="Shadowing retail pickers in physical aisles, translating daily store constraints into an Android utility that optimizes picking routes and effort."
       productPageUrl="https://www.wavegrocery.com/picking-software-for-online-grocery-stores"
       onClose={onClose}
       onPrev={onPrev}
@@ -166,10 +166,10 @@ export default function WavePickerView({ onClose, onPrev, onNext }: WavePickerVi
             
             <div className="space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-900 leading-snug max-w-5xl">
-                Design-led change that directly improves the <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">physical, daily lives of frontline workers</span>.
+                UX improvements that support <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">frontline supermarket staff</span>.
               </h2>
               <p className="text-zinc-640 text-sm sm:text-base leading-relaxed max-w-4xl font-sans">
-                This is my favorite project from my tenure at Wave Grocery. For any hiring manager, it shows that I don't just sit in front of Figma—I go into the field to co-create with active users. Designing for frontline workers requires intense ergonomics. Every tap must require low concentration. By designing optimized routes, we substituted intelligent routing for physical running—a massive win for workplace ergonomics and picker performance.
+                This project is a great example of design in the field. I shadowed pickers in supermarkets to understand their workday constraints. Designing for workers on their feet requires ergonomics: screens must be readable on the move and actions must be easy to perform with one hand. By optimization of routes, we reduced physical backtracking and walking distances.
               </p>
             </div>
           </div>
