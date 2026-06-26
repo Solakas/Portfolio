@@ -211,10 +211,10 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
             </div>
           </div>
 
-          {/* Core Biography summary (Enriched with military-grade precision) */}
+          {/* Core Biography summary */}
           <div className="border-l-2 border-zinc-900 pl-4 py-1 max-w-2xl bg-zinc-50/50 pr-4 rounded-r-lg">
             <p className="text-zinc-600 text-sm sm:text-base leading-relaxed font-normal">
-              AI-native UX Designer and Systems Architect with over 6 years of experience designing complex platforms and high-density e-commerce solutions. Expert in bridging design and code by leveraging AI workflows (<strong className="text-zinc-900">Claude</strong>, <strong className="text-zinc-900">Cursor</strong>, <strong className="text-zinc-900">Figma Make</strong>) to ship functional, production-ready React prototypes. Architect of the multi-branded Wave Grocery Design System. Former Hellenic Air Force Officer, bringing structured precision and leadership to high-performance product squads.
+              I am a UX Designer and Systems Architect with 6 years of experience. I focus on complex digital products, e-commerce, and design systems. I bridge the gap between design and front-end development by building functional React prototypes, and I architected the multi-branded Wave Grocery Design System. Before my design career, I was an Officer in the Hellenic Air Force, which taught me discipline and team leadership.
             </p>
           </div>
 
@@ -297,15 +297,15 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                       <ul className="space-y-2 text-zinc-650 text-sm leading-relaxed font-normal">
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Explore and integrate cutting-edge, AI-native solutions to optimize user onboarding and design-to-code pipelines, leveraging tools like <strong className="text-zinc-900">Claude</strong>, <strong className="text-zinc-900">Cursor</strong>, and <strong className="text-zinc-905">Figma Make</strong> to accelerate layout generation and interactive prototyping.</span>
+                          <span>Explore and integrate AI-assisted design-to-code workflows using tools like Claude and Cursor to build prototypes faster.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Spearheaded the design strategy, refactoring audits, and continuous maintenance of the <strong className="text-zinc-900">Wave Grocery Design System (WG DS)</strong>—scaling the library to <strong className="text-zinc-900">146 core components</strong> and over <strong className="text-zinc-900">3,500+ interactive variants</strong> with guaranteed 1:1 code readiness and unidirectional token architectures.</span>
+                          <span>Designed and maintain the Wave Grocery Design System. Scaled the library to 146 components and over 3,500 interactive variants, aligning design assets 1:1 with code.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Manage and mentor a high-performing design team, establishing modern token governance models and streamlined contribution pipelines for multi-brand products.</span>
+                          <span>Manage and mentor the design team, establishing design token standards and contribution pipelines for multi-brand products.</span>
                         </li>
                       </ul>
                     </motion.div>
@@ -335,19 +335,19 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                       <ul className="space-y-2 text-zinc-650 text-sm leading-relaxed font-normal">
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Crafted and structured the multi-branded <strong className="text-zinc-900">Wave Grocery Design System</strong> from the ground up, establishing a single, unified codebase-aligned component core that enables deep brand customization and extreme visual flexibility for multiple retail clients.</span>
+                          <span>Created the multi-branded Wave Grocery Design System from scratch, building a unified component library that allows clients to customize branding easily.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Directed the complete redesign of both the responsive web storefront and native mobile applications, aligning complex e-commerce interactions with modern premium aesthetics.</span>
+                          <span>Redesigned the web storefront and native mobile apps to improve user flow and visual clarity.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Orchestrated end-to-end product feature lifecycles from initial user analysis to high-fidelity UI layout and rigorous QA validation, shipping high-impact solutions like <strong className="text-zinc-950">Intelligent Search</strong>, <strong className="text-zinc-950">Edit Order</strong>, and <strong className="text-zinc-950">Product Personalization</strong>.</span>
+                          <span>Led product features from research to UI layout and QA, shipping features like Intelligent Search, Edit Order, and Product Personalization.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Championed strict design heuristics and pixel-level quality control, securing full cross-platform design-to-code parity and uncompromised accessibility syncs (<strong className="text-zinc-900">WCAG & ADA guidelines</strong>).</span>
+                          <span>Ensured design-to-code parity and accessibility compliance (WCAG & ADA guidelines) across web and mobile platforms.</span>
                         </li>
                       </ul>
                     </motion.div>
@@ -378,11 +378,11 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                       <ul className="space-y-2 text-zinc-650 text-sm leading-relaxed font-normal">
                         <li className="flex items-start gap-2">
                           <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                          <span>Commanded military units, operating advanced real-time software systems and target telemetry hardware under high-velocity conditions.</span>
+                          <span>Commanded units and operated target telemetry systems under demanding conditions.</span>
                         </li>
                         <li className="flex items-start gap-2">
                            <span className="text-zinc-400 shrink-0 mt-1">▪</span>
-                           <span>Led military daily briefings, maintenance syncs, and drills—developing rigorous accountability, technical discipline, alignment, and command structure.</span>
+                           <span>Led daily briefings, maintenance syncs, and drills, developing discipline and leadership skills.</span>
                          </li>
                        </ul>
                     </motion.div>
@@ -492,14 +492,14 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                         </div>
                         <p className="font-medium text-xs sm:text-sm text-zinc-500">DesignCourse Certification</p>
                         <p className="text-xs sm:text-sm pt-2">
-                          Specialized masterclass in building full-stack SaaS applications using Next.js, PostgreSQL, and Claude Code to implement AI capabilities, dynamic editor interfaces, secure authentication, and Stripe integrations.
+                          Masterclass on building SaaS applications using Next.js, PostgreSQL, and Claude Code to implement AI features, editor interfaces, auth, and Stripe.
                         </p>
                       </div>
                     </div>
 
                     <div className="border border-zinc-200/50 bg-white/50 rounded-2xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
                       <div className="p-3 bg-zinc-100 rounded-xl text-zinc-850">
-                        <Sparkles className="w-5 h-5 text-amber-500/80" />
+                        <Sparkles className="w-5 h-5 text-amber-505" />
                       </div>
                       <div className="flex-1 space-y-1 text-zinc-650 leading-relaxed">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -510,7 +510,7 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                         </div>
                         <p className="font-medium text-xs sm:text-sm text-zinc-500">DesignCourse Certification</p>
                         <p className="text-xs sm:text-sm pt-2">
-                          Advanced masterclass specializing in interactive motion design, scroll-driven animations with GSAP (ScrollTrigger), parallax layouts, Three.js 3D web interfaces, SVG masking, and fluid web animations.
+                          Masterclass focusing on motion design, GSAP animations, responsive layouts, and Three.js elements.
                         </p>
                       </div>
                     </div>
@@ -528,7 +528,7 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                         </div>
                         <p className="font-medium text-xs sm:text-sm text-zinc-500">DesignCourse Certification</p>
                         <p className="text-xs sm:text-sm pt-2">
-                          Interactive training specializing in core ES6+ syntax, DOM manipulation, custom event-driven interactivity, dark mode configurations, event handlers, and practical algorithmic layout challenges.
+                          Training covering ES6+ syntax, DOM manipulation, custom events, and interactive layout challenges.
                         </p>
                       </div>
                     </div>
@@ -546,7 +546,7 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                         </div>
                         <p className="font-medium text-xs sm:text-sm text-zinc-500">Josh W. Comeau (Interactive Course)</p>
                         <p className="text-xs sm:text-sm pt-2">
-                          Advanced interactive training specializing in core CSS rendering rules, flexbox & grid layouts, relative/absolute positioning, responsive system layout patterns, CSS variables, and fluid transitions/animations.
+                          Course covering layout systems (Flexbox, Grid), positioning, CSS variables, and responsive layout patterns.
                         </p>
                       </div>
                     </div>
@@ -564,7 +564,7 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                         </div>
                         <p className="font-medium text-xs sm:text-sm text-zinc-500">CareerFoundry Graduation Credentials</p>
                         <p className="text-xs sm:text-sm pt-2">
-                          In-depth professional masterclass specializing in user research, wireframing, high-fidelity prototypes, heuristic evaluations, and interactive design validation.
+                          Program covering user research, wireframing, prototyping, and heuristic evaluations.
                         </p>
                       </div>
                     </div>
@@ -582,7 +582,7 @@ export default function AboutView({ onBack, userEmail = "solakidisp@gmail.com" }
                         </div>
                         <p className="font-medium text-xs sm:text-sm text-zinc-500">Hellenic Air Force Academy (Athens, Greece)</p>
                         <p className="text-xs sm:text-sm pt-2">
-                          Academic and practical training in aerospace mechanics, electronic countermeasures, team organization, radar telemetry logic, air operations coordination, and tactical leadership.
+                          Academic and practical training in mechanics, electronics, operations coordination, and leadership.
                         </p>
                       </div>
                     </div>

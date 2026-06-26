@@ -48,7 +48,7 @@ const liveProductsData: Product[] = [
     subtitle: "Native Multi-Brand iOS & Android",
     badge: "mobile app",
     company: "Desquared SA",
-    description: "Designed systemic core components and tokenized architectures deployed across white-label native applications for major supermarket chains. Features highly customizable brand layouts, offline state management, and ergonomic physical interactions.",
+    description: "Designed core UI components and tokens for white-label native apps used by supermarket chains. Features customizable themes, offline support, and accessibility standards.",
     tech: ["Multi-Brand System", "Token Architecture", "Native App Design", "WCAG AA"],
     gradient: "from-indigo-600 via-blue-500 to-sky-500",
     icon: Smartphone,
@@ -64,7 +64,7 @@ const liveProductsData: Product[] = [
     subtitle: "Responsive Retail Storefront",
     badge: "web app",
     company: "Desquared SA",
-    description: "Structured configurable storefront web app layouts supporting 50k+ daily real-time ERP product syncs, predictive fast lookup, customizable grocery preparation values, and multi-device usability.",
+    description: "Created configurable storefront web app layouts supporting daily ERP product syncs, fast search, custom preparation options, and multi-device layouts.",
     tech: ["Web E-commerce", "Theme Parameters", "Search UX", "Cart Systems"],
     gradient: "from-emerald-600 via-teal-500 to-emerald-450",
     icon: Globe,
@@ -80,7 +80,7 @@ const liveProductsData: Product[] = [
     subtitle: "Operational B2B Enterprise Console",
     badge: "SaaS Software",
     company: "Desquared SA",
-    description: "Refactored complex warehouse settings, logistics timeslots, role-based scoping, capacity safeguards, and WYSIWYG Flyer content publishers into simple, human web utilities for non-technical retail personnel.",
+    description: "Redesigned the management panel (warehouse settings, slots, capacity checks, flyer builder) to make it simple for retail teams.",
     tech: ["B2B SaaS Panels", "Capacity Calendars", "WYSIWYG Flyer builder", "RBAC Presets"],
     gradient: "from-amber-600 via-orange-500 to-yellow-500",
     icon: Sliders,
@@ -96,7 +96,7 @@ const liveProductsData: Product[] = [
     subtitle: "Ergonomic Frontline Picking Software",
     badge: "mobile app",
     company: "Desquared SA",
-    description: "Designed a hands-free high-density mobile scanning utility for physical retail floors. shadow-researched with active supermarket personnel to organize shelf locations into continuous non-backtracking physical routes.",
+    description: "Designed a mobile scanning app for store personnel. Conducted in-store research to organize items by shelf locations and optimize picking routes.",
     tech: ["Fulfillment App", "Aisle Routing", "Tactile Scans", "AI Substitutes"],
     gradient: "from-rose-600 via-pink-500 to-rose-450",
     icon: Users,
@@ -137,14 +137,39 @@ const cardVariants = {
 } as const;
 
 export default function ProductsView({ onBack }: ProductsViewProps) {
-  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+  const getProductFromHash = () => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash.startsWith("#live-products/")) {
+      return hash.replace("#live-products/", "");
+    }
+    return null;
+  };
+
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(getProductFromHash());
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    const handleHash = () => {
+      setSelectedProduct(getProductFromHash());
+    };
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  const selectProductAndSetHash = (productId: string | null) => {
+    if (productId) {
+      window.location.hash = `#live-products/${productId}`;
+    } else {
+      window.location.hash = `#live-products`;
+    }
+    setSelectedProduct(productId);
+  };
 
   if (selectedProduct) {
     const currentIndex = liveProductsData.findIndex(p => p.id === selectedProduct);
-    const onPrev = currentIndex > 0 ? () => setSelectedProduct(liveProductsData[currentIndex - 1].id) : undefined;
-    const onNext = currentIndex < liveProductsData.length - 1 ? () => setSelectedProduct(liveProductsData[currentIndex + 1].id) : undefined;
-    const handleClose = () => setSelectedProduct(null);
+    const onPrev = currentIndex > 0 ? () => selectProductAndSetHash(liveProductsData[currentIndex - 1].id) : undefined;
+    const onNext = currentIndex < liveProductsData.length - 1 ? () => selectProductAndSetHash(liveProductsData[currentIndex + 1].id) : undefined;
+    const handleClose = () => selectProductAndSetHash(null);
 
     switch (selectedProduct) {
       case "app":
@@ -347,7 +372,7 @@ export default function ProductsView({ onBack }: ProductsViewProps) {
                       colors={glowConfig.colors}
                       onMouseEnter={() => setHoveredCardId(project.id)}
                       onMouseLeave={() => setHoveredCardId(null)}
-                      onClick={() => setSelectedProduct(project.id)}
+                      onClick={() => selectProductAndSetHash(project.id)}
                       className={`group w-full h-full p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[330px] md:min-h-[350px] transition-all duration-500 cursor-pointer text-left ${
                         isHovered 
                           ? "shadow-xl shadow-zinc-100/60 border-zinc-950" 

@@ -78,7 +78,7 @@ export default function ManifestoView() {
                 THE ENGINE
               </h2>
               <p className="text-zinc-600 text-sm sm:text-base leading-relaxed max-w-md">
-                NeuroFlow acts as an intelligent visual substrate, coordinating decentralized design files and live production environments into a high-concurrency canvas that bridges human creative intent and auto-compiled visual code.
+                We combine design files with live code to create a responsive web environment where design decisions are synchronized automatically.
               </p>
             </div>
 
@@ -102,10 +102,10 @@ export default function ManifestoView() {
           <div className="lg:col-span-7 space-y-12">
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.05]">
-                Fragmented focus in the age of intelligence.
+                Maintaining UI consistency across multiple products.
               </h1>
               <p className="text-zinc-600 text-base sm:text-lg leading-relaxed font-sans max-w-2xl">
-                Design systems lose consistency when scaled across fast-moving squads. Traditional canvas workspaces isolate design files from code environments, slowing alignment down. To bridge this, LLM-reasoning processes must act directly as the visual substrate, compiling layout parameters dynamically and transparently.
+                Design consistency is hard to maintain when teams scale. Traditional workflows isolate design files from code bases, causing handoff friction. To solve this, design systems should bridge design intent and frontend code automatically by syncing layout parameters and tokens directly.
               </p>
             </div>
 
@@ -198,10 +198,10 @@ export default function ManifestoView() {
               02. THE INSIGHT
             </span>
             <h3 className="text-4xl sm:text-5xl font-black tracking-tight text-zinc-950 font-sans leading-none">
-              AI should be the substrate, not the tool.
+              AI as an assistant in design systems.
             </h3>
             <p className="text-zinc-650 text-sm sm:text-base leading-relaxed">
-              Rather than treating generative AI as an external chat utility or a separated copilot, we weave intelligence directly into the material canvas itself. The layout understands its own spacing constraints, accessibility standards, and localized text margins, functioning as a living, self-correcting design system.
+              Instead of using AI only for chat, it can assist in validating layouts. It can check spacing rules, contrast compliance, and text alignment in real-time, helping developers build more reliable interfaces.
             </p>
             
             <div className="pt-4 border-t border-zinc-100 flex items-center gap-4 text-xs font-mono">
@@ -270,10 +270,10 @@ export default function ManifestoView() {
             03. THE SOLUTION
           </span>
           <h3 className="text-4xl sm:text-5xl font-black tracking-tight text-zinc-950 font-sans">
-            A Unified Infinite Canvas
+            Connecting Layouts, Tokens, and Components
           </h3>
           <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
-            Unifying layout systems, component assets, and compilation variables inside an interactive environment built with ultimate modular precision.
+            Connecting layouts, tokens, and components under a single standard to simplify UI development.
           </p>
         </div>
 
@@ -287,10 +287,10 @@ export default function ManifestoView() {
                 <SlidersHorizontal className="w-6 h-6" />
               </div>
               <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
-                Fluid Intent Capture
+                Fast UI Prototyping
               </h4>
               <p className="text-zinc-500 text-sm leading-relaxed">
-                Continuous keystroke-to-vector synchronization. Stream casual user concepts into functional, structured layout coordinates seamlessly without tedious node handling.
+                Quickly translate layout descriptions into clean React components without manual setup.
               </p>
             </div>
 
@@ -322,10 +322,10 @@ export default function ManifestoView() {
                   <Activity className="w-6 h-6 text-emerald-400" />
                 </div>
                 <h4 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                  Adaptive Typography
+                  Responsive Layouts
                 </h4>
                 <p className="text-zinc-400 text-sm leading-relaxed max-w-xl">
-                  Fluid typographical scaling parameters calculated smoothly based on custom CSS clamp equations. The workspace adjusts titles, hierarchies, and labels to perfectly snap against all hardware boundaries.
+                  Calculate typography scaling and spacing dynamically to ensure screens look correct across different viewports.
                 </p>
               </div>
 
@@ -346,10 +346,10 @@ export default function ManifestoView() {
                   <Maximize2 className="w-5 h-5 text-zinc-700" />
                 </div>
                 <h5 className="font-mono font-bold text-xs uppercase tracking-wider text-zinc-400">
-                  AUTO-CONTEXT
+                  Layout Integrity
                 </h5>
                 <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
-                  Maintains absolute context variables across dynamic screen dimensions, preventing bounding boxes and columns from collapsing.
+                  Ensures columns and grids do not collapse on smaller viewports.
                 </p>
               </div>
             </div>
@@ -361,10 +361,10 @@ export default function ManifestoView() {
                   <Sparkles className="w-5 h-5 text-zinc-700" />
                 </div>
                 <h5 className="font-mono font-bold text-xs uppercase tracking-wider text-zinc-400">
-                  NEURAL SYNC
+                  Token Sync
                 </h5>
                 <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
-                  Bridges the gap between raw canvas structures and Tailwind variable definitions via live synced webhooks.
+                  Keeps design tokens synchronized with frontend stylesheets.
                 </p>
               </div>
             </div>
@@ -395,10 +395,10 @@ export default function ManifestoView() {
               04. THE IMPACT
             </span>
             <h3 className="text-4xl sm:text-5xl font-black tracking-tight text-white font-sans">
-              Quantifying Creativity
+              Project Outcomes
             </h3>
             <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
-              Tracking systematic performance improvements and efficiency scorecards realized dynamically across design implementation projects.
+              Performance metrics across projects.
             </p>
           </div>
 
@@ -411,10 +411,10 @@ export default function ManifestoView() {
                 40%
               </span>
               <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 font-bold">
-                TURNAROUND_TIMING
+                DESIGN TIME SAVED
               </h5>
               <p className="text-zinc-500 text-xs leading-relaxed max-w-xs mx-auto md:mx-0">
-                Reduction in project turnaround times to establish design systems and compile responsive screens.
+                Reduced time spent setting up styles and coding components.
               </p>
             </div>
 
@@ -424,10 +424,10 @@ export default function ManifestoView() {
                 3.2x
               </span>
               <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 font-bold">
-                ITERATION_FREQUENCY
+                ITERATION SPEED
               </h5>
               <p className="text-zinc-500 text-xs leading-relaxed max-w-xs mx-auto md:mx-0">
-                Increase in asset deployment speeds, updating style references in code securely without human error.
+                Faster style updates directly in the codebase without manual edits.
               </p>
             </div>
 
@@ -437,10 +437,10 @@ export default function ManifestoView() {
                 98%
               </span>
               <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 font-bold">
-                SATISFACTION_METRIC
+                TEAM ADOPTION
               </h5>
               <p className="text-zinc-500 text-xs leading-relaxed max-w-xs mx-auto md:mx-0">
-                Satisfaction rating across distributed engineering and style squads utilizing compiled variables.
+                Adoption rate by engineering and design teams using shared tokens.
               </p>
             </div>
 
