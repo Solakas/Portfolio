@@ -131,6 +131,25 @@ export default function App() {
     }
   };
 
+  // Manual page_view tracking on initial load and hash change
+  useEffect(() => {
+    const handlePageView = () => {
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "page_view", {
+          page_path: window.location.hash || "/",
+          page_title: document.title,
+          page_location: window.location.href,
+        });
+      }
+    };
+
+    // Track pageview on mount
+    handlePageView();
+
+    window.addEventListener("hashchange", handlePageView);
+    return () => window.removeEventListener("hashchange", handlePageView);
+  }, []);
+
   useEffect(() => {
     const checkIsWebView = () => {
       setIsWebView(window.innerWidth >= 1024);
