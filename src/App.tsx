@@ -135,8 +135,11 @@ export default function App() {
   useEffect(() => {
     const handlePageView = () => {
       if (typeof (window as any).gtag === "function") {
+        const rawHash = window.location.hash;
+        const cleanPath = rawHash ? rawHash.replace("#", "") : "/";
+        
         (window as any).gtag("event", "page_view", {
-          page_path: window.location.hash || "/",
+          page_path: cleanPath,
           page_title: document.title,
           page_location: window.location.href,
         });
