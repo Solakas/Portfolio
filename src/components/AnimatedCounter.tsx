@@ -20,25 +20,36 @@ export default function AnimatedCounter({ value, duration = 1.2 }: AnimatedCount
   useEffect(() => {
     if (numericPart === null) return;
 
-    if (typeof IntersectionObserver !== "undefined") {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setHasStarted(true);
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.1 }
-      );
+    const el = ref.current;
+    if (!el) return;
 
-      if (ref.current) {
-        observer.observe(ref.current);
+    const checkVisibility = () => {
+      const container = document.getElementById("case-study-scroll-container");
+      if (!container) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+
+      if (elRect.top <= containerRect.bottom - 40) {
+        setHasStarted(true);
       }
+    };
 
-      return () => observer.disconnect();
-    } else {
-      setHasStarted(true);
+    const container = document.getElementById("case-study-scroll-container");
+    if (container) {
+      container.addEventListener("scroll", checkVisibility, { passive: true });
     }
+
+    const timer1 = setTimeout(checkVisibility, 50);
+    const timer2 = setTimeout(checkVisibility, 150);
+
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", checkVisibility);
+      }
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, [numericPart]);
 
   useEffect(() => {
@@ -47,6 +58,7 @@ export default function AnimatedCounter({ value, duration = 1.2 }: AnimatedCount
     let startTime: number | null = null;
     const startValue = 0;
     const endValue = numericPart;
+    let animationFrameId: number;
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
@@ -57,20 +69,20 @@ export default function AnimatedCounter({ value, duration = 1.2 }: AnimatedCount
       setCurrent(currentValue);
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
       } else {
         setCurrent(endValue);
       }
     };
 
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
   }, [hasStarted, numericPart, duration]);
 
   if (numericPart === null) {
     return <span>{value}</span>;
   }
 
-  // Handle formatted rendering
   return (
     <span ref={ref} className="tabular-nums inline-block">
       {prefix}
