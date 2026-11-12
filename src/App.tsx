@@ -12,6 +12,7 @@ import ProductsView from "./components/ProductsView";
 import ProjectsView from "./components/ProjectsView";
 import DesignSystemsView from "./components/DesignSystemsView";
 import ManifestoView from "./components/ManifestoView";
+import CreativeLabsView from "./components/CreativeLabsView";
 import Antigravity from "./components/Antigravity";
 import LoadingScreen from "./components/LoadingScreen";
 
@@ -178,6 +179,8 @@ export default function App() {
         targetSection = "design-systems";
       } else if (hash.includes("manifesto")) {
         targetSection = "manifesto";
+      } else if (hash.includes("creative-labs")) {
+        targetSection = "creative-labs";
       } else {
         targetSection = "home";
       }
@@ -389,7 +392,8 @@ export default function App() {
     { label: "About me", href: "#about" },
     { label: "Live products", href: "#live-products" },
     { label: "AI projects", href: "#ai-projects" },
-    { label: "Design systems", href: "#design-systems" }
+    { label: "Design systems", href: "#design-systems" },
+    { label: "Creative labs", href: "#creative-labs" }
   ];
 
   return (
@@ -794,6 +798,12 @@ export default function App() {
         {activeSection === "manifesto" && (
           <div key="manifesto" className="flex-1 w-full flex flex-col items-center justify-start overflow-hidden">
             <ManifestoView />
+          </div>
+        )}
+
+        {activeSection === "creative-labs" && (
+          <div key="creative-labs" className="flex-1 w-full flex flex-col items-center justify-start overflow-hidden">
+            <CreativeLabsView onBack={() => { window.location.hash = ""; }} />
           </div>
         )}
 

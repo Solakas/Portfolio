@@ -51,12 +51,12 @@ export default function CareerPulseDeepDive() {
       >
         <div className="border-l-4 border-indigo-650 pl-4 select-none">
           <span className="font-mono text-xs font-bold tracking-widest text-indigo-600 uppercase block">
-            01. PLATFORM CAPABILITIES
+            AI-POWERED PLATFORM CAPABILITIES
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold font-sans tracking-tight text-zinc-950">
-            Core Interactive Modules
+            Core AI Modules & Intelligence
           </h3>
-          <p className="text-zinc-500 text-xs sm:text-sm mt-1">Refined UI mechanisms that deliver critical matches with high telemetry efficiency.</p>
+          <p className="text-zinc-500 text-xs sm:text-sm mt-1">How Gemini 2.5 transforms raw job postings into actionable candidate match intelligence.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 select-none">
@@ -66,9 +66,9 @@ export default function CareerPulseDeepDive() {
               <Brain className="w-5 h-5 text-indigo-650" />
             </div>
             <div className="space-y-1.5">
-              <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">Instant Job Decoding ("The Career Advisor")</h4>
+              <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">Instant Job Decoding ("AI Advisor")</h4>
               <p className="text-[12px] text-zinc-500 leading-relaxed font-sans">
-                Users simply paste raw, unstructured HR requirements. CareerPulse executes server-side parsing to decompose long generic descriptions into core tech requirements, typical day operations, and unadvertised commitments.
+                Gemini 2.5 parses raw HR job postings into structured JSON schemas, instantly decomposing generic requirements into daily operations, core tech stacks, and hidden obligations.
               </p>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function CareerPulseDeepDive() {
             <div className="space-y-1.5">
               <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">Objective Match Scoring (0-100%)</h4>
               <p className="text-[12px] text-zinc-500 leading-relaxed font-sans">
-                Correlates the parsed job features recursively with the candidate's exact target parameters. Delivers an objective suitability score based on real compatibility weights rather than generic recruiter keyword optimization.
+                Multi-parameter Euclidean distance scoring correlates salary baselines, location style, and tech fit against posting requirements with objective precision.
               </p>
             </div>
           </div>
@@ -92,9 +92,9 @@ export default function CareerPulseDeepDive() {
               <Sparkles className="w-5 h-5 text-amber-600" />
             </div>
             <div className="space-y-1.5">
-              <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">Deep Corporate Culture Insight</h4>
+              <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">AI Interview Prep Generator</h4>
               <p className="text-[12px] text-zinc-500 leading-relaxed font-sans">
-                Isolates tone signatures across HR posting templates. Exposes potential management style preferences, structural trade-offs, and custom interview briefing materials optimized specifically for the candidate's background.
+                Gemini 2.5 generates customized interview briefing sheets, technical deep-dive questions, and company culture insights tailored specifically to the candidate.
               </p>
             </div>
           </div>
@@ -105,9 +105,9 @@ export default function CareerPulseDeepDive() {
               <Database className="w-5 h-5 text-orange-600" />
             </div>
             <div className="space-y-1.5">
-              <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">System Tracking & Evaluation CRM</h4>
+              <h4 className="text-sm font-bold text-zinc-950 font-sans tracking-tight">Application Evaluation CRM</h4>
               <p className="text-[12px] text-zinc-500 leading-relaxed font-sans">
-                A persistent relational pipeline that archives scanned jobs, stores compatibility calculations, tracks real progression states (e.g., Interviewing, Offered), and retains private post-interview briefs.
+                A persistent Firestore-backed pipeline that archives evaluated postings, tracks candidate application progression stages, and retains private interview notes.
               </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function CareerPulseDeepDive() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1.5 select-none">
             <span className="font-mono text-xs font-bold tracking-widest text-indigo-600 uppercase block">
-              02. THE INTERACTIVE WORKSPACE
+              INTERACTIVE WORKSPACE
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold font-sans tracking-tight text-zinc-950">
               Live App Prototype

@@ -32,7 +32,8 @@ import {
   Hand,
   Volume2,
   Type,
-  Eye
+  Eye,
+  Code2
 } from "lucide-react";
 
 // Raw high-fidelity image slides from the public Solakas/Image-uploader repository with full content annotations
@@ -583,7 +584,11 @@ class AppButton extends StatelessWidget {
   }
 ];
 
-export default function PandaHabitsDeepDive() {
+interface PandaHabitsDeepDiveProps {
+  mode?: "all" | "design-lab" | "ui-mockups";
+}
+
+export default function PandaHabitsDeepDive({ mode = "all" }: PandaHabitsDeepDiveProps) {
   const [activeTab, setActiveTab] = useState<"tokens" | "physics" | "assistive" | "scaling">("tokens");
   const [copiedCodeId, setCopiedCodeId] = useState<string | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
@@ -620,24 +625,21 @@ export default function PandaHabitsDeepDive() {
   };
 
   return (
-    <div className="mt-24 pt-20 border-t border-zinc-200/60 space-y-24">
-      {/* HEADER STATEMENT */}
+    <div className="space-y-16">
+      {/* PART A: PANDAHABITS DESIGN LAB */}
+      {(mode === "all" || mode === "design-lab") && (
+        <div className="space-y-12">
+          {/* HEADER STATEMENT */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <motion.div 
           initial={{ opacity: 0, y: 30, filter: "blur(3px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-12 space-y-4"
+          className="lg:col-span-12 space-y-2"
         >
-          <span className="font-mono text-xs font-bold tracking-widest text-[#15803D] uppercase block">
-            04. INTERACTIVE CASE STUDY — ANDROID FLUTTER PLAYGROUND
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-sans tracking-tight text-zinc-950 leading-tight">
-            PandaHabits Design Lab.
-          </h2>
-          <p className="text-zinc-600 text-base sm:text-lg max-w-4xl leading-relaxed">
-            Instead of hand-drawing static screens in Figma and losing design consistency during engineering translations, we built a **direct-token-to-widget** synchronization system. Test-drive the interactive storybook simulator below to experience our tactile contrast validations, behavior calculators, and grab production Dart templates.
+          <p className="text-zinc-600 text-sm sm:text-base max-w-4xl leading-relaxed">
+            Instead of hand-drawing static screens in Figma and losing design consistency during engineering translations, we built a <strong>direct-token-to-widget</strong> synchronization system. Test-drive the interactive storybook simulator below to experience tactile contrast validations, behavior calculators, and grab production Dart templates.
           </p>
         </motion.div>
       </div>
@@ -1088,30 +1090,41 @@ export default function PandaHabitsDeepDive() {
           </div>
 
           {/* ACTIVE TOKEN DART CODE PANEL */}
-          <div className="pt-6 border-t border-zinc-200">
-            <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest block font-bold mb-2">
-              ZERO-FIGMA DART PARITY INTEGRATOR
-            </span>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="pt-6 border-t border-zinc-200 space-y-3">
+            <div>
+              <span className="font-mono text-xs font-bold text-[#15803D] uppercase tracking-wider block">
+                EXPORT FLUTTER DART CODE TEMPLATES
+              </span>
+              <p className="text-zinc-500 text-xs mt-0.5 font-sans">
+                Click any file below to copy production-ready Dart code directly into your Flutter project.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {CODE_SNIPPETS.map((snippet) => {
                 const isCopied = copiedCodeId === snippet.id;
                 return (
                   <button
                     key={snippet.id}
                     onClick={() => handleCopyCode(snippet.id, snippet.code)}
-                    className="p-3 bg-white border border-zinc-200 rounded-xl hover:border-zinc-450 text-left transition-all duration-200 flex items-center justify-between shadow-xs group"
+                    className="p-3.5 bg-white border border-zinc-200 rounded-2xl hover:border-emerald-600/40 text-left transition-all duration-200 flex items-center justify-between gap-3 shadow-xs group cursor-pointer"
                   >
-                    <div className="space-y-0.5">
-                      <span className="text-xs font-bold text-zinc-900 block font-mono">
-                        {snippet.name}
-                      </span>
-                      <span className="text-[10px] text-zinc-400 uppercase tracking-wider block font-bold">
-                        FLUTTER {snippet.language}
-                      </span>
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-100">
+                        <Code2 className="w-4 h-4 text-[#15803D]" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-xs font-bold text-zinc-900 block font-mono truncate">
+                          {snippet.name}
+                        </span>
+                        <span className="text-[10px] text-zinc-500 font-mono block">
+                          Copy Dart File
+                        </span>
+                      </div>
                     </div>
-                    <div className="w-8 h-8 rounded-lg bg-zinc-50 border border-zinc-150 flex items-center justify-center text-zinc-455 group-hover:bg-zinc-100 transition-colors">
+
+                    <div className="w-8 h-8 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-600 group-hover:bg-[#15803D] group-hover:text-white transition-colors shrink-0">
                       {isCopied ? (
-                        <Check className="w-4 h-4 text-emerald-600 stroke-[2.5]" />
+                        <Check className="w-4 h-4 stroke-[2.5]" />
                       ) : (
                         <Copy className="w-4 h-4" />
                       )}
@@ -1403,34 +1416,31 @@ export default function PandaHabitsDeepDive() {
             </div>
           </div>
         </div>
-
       </div>
+    </div>
+  )}
 
-      {/* CORE MOCKUP SHOWCASE GALLERY */}
-      <div id="ui-mockups" className="space-y-12 bg-[#F9FAFB] border border-zinc-200/80 p-6 sm:p-10 rounded-3xl shadow-xs">
+      {/* PART B: CORE MOCKUP SHOWCASE GALLERY */}
+      {(mode === "all" || mode === "ui-mockups") && (
+        <div className="space-y-12">
+          <div className="space-y-12 bg-[#F9FAFB] border border-zinc-200/80 p-6 sm:p-10 rounded-3xl shadow-xs">
         {/* SECTION HEADER */}
         <div className="space-y-3">
-          <span className="font-mono text-xs font-bold tracking-widest text-[#15803D] uppercase block">
-            05. HIGH-FIDELITY MOBILE LAYOUT SHOWCASE
-          </span>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h3 className="text-3xl sm:text-4xl font-extrabold font-sans tracking-tight text-zinc-950 col-span-2">
-              UI Mockups
-            </h3>
+            <p className="text-zinc-600 text-sm sm:text-base max-w-4xl leading-relaxed">
+              High-fidelity visual representations of the final application user experience across Onboarding, Daily Tracking, Recipe Coach, and Education.
+            </p>
             <a
               href="https://panda-habits-web.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-bold font-sans text-white hover:bg-emerald-800 bg-[#15803D] rounded-xl shadow-2xs hover:shadow-xs transition-all duration-300 group cursor-pointer self-start sm:self-auto"
+              className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-bold font-sans text-white hover:bg-emerald-800 bg-[#15803D] rounded-xl shadow-2xs hover:shadow-xs transition-all duration-300 group cursor-pointer self-start sm:self-auto shrink-0"
             >
               <Globe className="w-4 h-4 text-emerald-100 transition-transform group-hover:scale-110" />
               <span>Explore Live Web App</span>
               <ArrowUpRight className="w-3.5 h-3.5 opacity-75 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
-          <p className="text-zinc-500 text-sm sm:text-base max-w-4xl leading-relaxed">
-            High-fidelity visual representations of the final application user experience.
-          </p>
 
           {/* STEP DOTS & TEXT DIRECT JUMP INDEX PIPELINE */}
           <div className="pt-4 border-t border-zinc-200/50 mt-4 space-y-4">
@@ -1671,15 +1681,17 @@ export default function PandaHabitsDeepDive() {
           <p className="text-xs sm:text-sm text-zinc-750 leading-relaxed font-sans">
             "Counting calories" acts like a rigid list of chore trackers, causing extreme high tracking fatigue and visual self-sabotage. Re-orienting the user journey towards emotional snack-trigger maps, sustainable trends, and soft mascot-guided encouragement buffer guilt points, delivering sustainable behavior modifications.
           </p>
-          <div className="p-4 bg-orange-50/50 border border-orange-105 rounded-2xl flex gap-3 text-xs text-orange-850 leading-relaxed font-sans">
+          <div className="p-4 bg-orange-50/50 border border-orange-100 rounded-2xl flex gap-3 text-xs text-orange-900 leading-relaxed font-sans">
             <span className="text-lg">🍪</span>
             <div>
               <span className="font-bold block uppercase tracking-wider text-[9px]">BEHAVIOR METRIC ACCREDITED</span>
-              <span>PandaHabits reduces logging drop-off rates inside trials by **42%** by removing strict red/green guilt coloring, substituting color-led warnings with literal unicode face emotes.</span>
+              <span>PandaHabits reduces logging drop-off rates inside trials by <strong>42%</strong> by removing strict red/green guilt coloring, substituting color-led warnings with literal unicode face emotes.</span>
             </div>
           </div>
         </motion.div>
       </div>
+    </div>
+  )}
 
       {/* FULL-SIZE DETAIL ZOOM MODAL */}
       <AnimatePresence>
