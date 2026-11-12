@@ -10,6 +10,7 @@ interface ProjectDetailLayoutProps {
   githubUrl?: string;
   liveUrl?: string;
   liveUrlLabel?: string;
+  onLiveUrlClick?: () => void;
   figmaUrl?: string;
   tenantUrl?: string;
   tenantUrlLabel?: string;
@@ -31,6 +32,7 @@ export default function ProjectDetailLayout({
   githubUrl,
   liveUrl,
   liveUrlLabel,
+  onLiveUrlClick,
   figmaUrl,
   tenantUrl,
   tenantUrlLabel,
@@ -303,6 +305,7 @@ export default function ProjectDetailLayout({
                     href={liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={onLiveUrlClick}
                     className="inline-flex items-center gap-2 px-4.5 py-2.5 text-xs sm:text-sm font-semibold font-mono text-zinc-700 hover:text-zinc-950 bg-white border border-zinc-250 hover:border-zinc-405 rounded-full shadow-2xs hover:shadow-xs transition-all duration-300 group"
                   >
                     <Globe className="w-4 h-4 text-indigo-600 transition-transform group-hover:scale-110" />

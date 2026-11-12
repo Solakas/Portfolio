@@ -20,24 +20,46 @@ export default function AnimatedCounter({ value, duration = 1.2 }: AnimatedCount
   useEffect(() => {
     if (numericPart === null) return;
 
+    let isMounted = true;
+    const startAnimation = () => {
+      if (isMounted) {
+        setHasStarted(true);
+      }
+    };
+
+    // 1. Fallback timeout: ensures counters ALWAYS animate and never remain stuck at 0,
+    // even inside nested overflow/motion containers where IntersectionObserver might not fire.
+    const fallbackTimer = setTimeout(startAnimation, 350);
+
+    // 2. IntersectionObserver with generous rootMargin and 0 threshold
     if (typeof IntersectionObserver !== "undefined") {
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setHasStarted(true);
-            observer.disconnect();
-          }
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              startAnimation();
+              observer.disconnect();
+            }
+          });
         },
-        { threshold: 0.1 }
+        { threshold: 0, rootMargin: "150px" }
       );
 
       if (ref.current) {
         observer.observe(ref.current);
       }
 
-      return () => observer.disconnect();
+      return () => {
+        isMounted = false;
+        observer.disconnect();
+        clearTimeout(fallbackTimer);
+      };
     } else {
-      setHasStarted(true);
+      startAnimation();
+      return () => {
+        isMounted = false;
+        clearTimeout(fallbackTimer);
+      };
     }
   }, [numericPart]);
 
