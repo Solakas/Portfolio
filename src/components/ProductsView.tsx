@@ -11,12 +11,14 @@ import {
   Activity,
   Award,
   Lock,
-  Database
+  Database,
+  ShoppingBag
 } from "lucide-react";
 import WaveMobileAppView from "./WaveMobileAppView";
 import WaveStorefrontView from "./WaveStorefrontView";
 import WaveManagementView from "./WaveManagementView";
 import WavePickerView from "./WavePickerView";
+import SplitOrderCaseStudyView from "./SplitOrderCaseStudyView";
 import AnimatedStatCard from "./AnimatedStatCard";
 import BorderGlow from "./BorderGlow";
 
@@ -39,6 +41,8 @@ interface Product {
   iconColor: string;
   statLeft: string;
   statRight: string;
+  fullWidth?: boolean;
+  heroImage?: string;
 }
 
 const liveProductsData: Product[] = [
@@ -105,6 +109,24 @@ const liveProductsData: Product[] = [
     iconColor: "text-rose-600 bg-rose-50 border-rose-100",
     statLeft: "Tactile Audio Scans",
     statRight: "-30% Effort Reduction"
+  },
+  {
+    id: "split-order",
+    title: "Unified Multi-Retailer Checkout",
+    subtitle: "Wave Grocery Marketplace — Split Order UX Architecture",
+    badge: "UX Case Study",
+    company: "Desquared SA",
+    description: "Transformed a single-grocer app into a multi-retailer marketplace partner. Architected a unified split checkout experience that resolves cognitive fatigue, enforces a global €100 basket minimum, and orchestrates 15-minute multi-retailer inventory holds.",
+    tech: ["Marketplace Architecture", "Unified Cart", "Split Timeslots", "Quantitative Usability", "State Machine"],
+    gradient: "from-emerald-600 via-teal-500 to-cyan-500",
+    icon: ShoppingBag,
+    vectorType: "flow",
+    badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200",
+    iconColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+    statLeft: "+22% Funnel Conversion",
+    statRight: "-45% Time-to-Task | +18% AOV",
+    fullWidth: true,
+    heroImage: "/assets/split_checkout_hero.png"
   }
 ];
 
@@ -180,6 +202,8 @@ export default function ProductsView({ onBack }: ProductsViewProps) {
         return <WaveManagementView onClose={handleClose} onPrev={onPrev} onNext={onNext} />;
       case "picker":
         return <WavePickerView onClose={handleClose} onPrev={onPrev} onNext={onNext} />;
+      case "split-order":
+        return <SplitOrderCaseStudyView onClose={handleClose} onPrev={onPrev} onNext={onNext} />;
       default:
         return null;
     }
@@ -343,6 +367,11 @@ export default function ProductsView({ onBack }: ProductsViewProps) {
                     glowColor: "345 80 65",
                     colors: ['#e11d48', '#ec4899', '#f43f5e']
                   };
+                case "split-order":
+                  return {
+                    glowColor: "160 80 65",
+                    colors: ['#059669', '#10b981', '#14b8a6']
+                  };
                 default:
                   return {
                     glowColor: "40 80 80",
@@ -360,7 +389,7 @@ export default function ProductsView({ onBack }: ProductsViewProps) {
                   y: -6,
                   transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } 
                 }}
-                className="w-full h-full"
+                className={`w-full h-full ${project.fullWidth ? "md:col-span-2" : ""}`}
               >
                 <BorderGlow
                       edgeSensitivity={30}
@@ -379,102 +408,193 @@ export default function ProductsView({ onBack }: ProductsViewProps) {
                           : "border-zinc-200"
                       }`}
                     >
-                      {/* Embedded Colored-to-Grayscale Canvas Graphics */}
-                      <div 
-                        className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
-                          isHovered 
-                            ? `scale-110 rotate-12 opacity-95 text-transparent bg-clip-text bg-gradient-to-tr ${project.gradient}` 
-                            : "scale-100 rotate-0 grayscale contrast-125 brightness-95 text-zinc-400"
-                        }`}
-                        style={{
-                          backgroundImage: isHovered ? "none" : "",
-                        }}
-                      >
-                        <div className={`w-full h-full flex items-center justify-center ${isHovered ? `text-indigo-500` : "text-zinc-400"}`}>
-                          <div 
-                            className={`w-full h-full transition-colors duration-500 ${
-                              isHovered ? "text-gradient bg-gradient-to-tr " + project.gradient : "text-zinc-300"
-                            }`}
-                            style={
-                              isHovered 
-                                ? { 
-                                    color: "transparent",
-                                    backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent"
-                                  }
-                                : undefined
-                            }
-                          >
-                            {renderProductVector(project.vectorType, isHovered, project.gradient)}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Card Header & Metadata */}
-                      <div className="z-10 w-full">
-                        <div className="flex items-center justify-between mb-4 sm:mb-6">
-                          <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
-                            isHovered 
-                              ? `bg-zinc-900 border-transparent text-white scale-110 shadow-md` 
-                              : `${project.iconColor} text-zinc-805`
-                          }`}>
-                            <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-                          </div>
-                          
-                          <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded border font-mono transition-all duration-300 uppercase ${
-                            isHovered 
-                              ? `bg-zinc-900 text-white border-zinc-900` 
-                              : `${project.badgeColor}`
-                          }`}>
-                            {project.badge}
-                          </span>
-                        </div>
-
-                        <div className="space-y-2">
-                          <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 flex items-center gap-2">
-                            <span>{project.title}</span>
-                            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-zinc-400" />
-                          </h4>
-                          <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-305 ${
-                            isHovered ? "text-zinc-900" : "text-zinc-500"
-                          }`}>
-                            {project.subtitle}
-                          </p>
-                        </div>
-
-                        <p className="text-zinc-650 text-xs sm:text-sm pt-4 leading-relaxed font-sans max-w-md">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      {/* Description & Tech Footer */}
-                      <div className="z-10 mt-8 w-full">
-                        <div className="pt-4 border-t border-zinc-200/60 flex flex-wrap items-center justify-between gap-4">
-                          <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
-                            {project.tech.map((t, idx) => (
-                              <span 
-                                key={idx} 
-                                className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                      {project.fullWidth ? (
+                        /* Full Width Flagship Case Study Layout */
+                        <div className="relative z-10 w-full flex flex-col md:flex-row items-stretch justify-between gap-8 my-auto">
+                          {/* Left Column: Information, Tags, KPIs */}
+                          <div className="flex-1 flex flex-col justify-between space-y-6">
+                            <div>
+                              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                                <div className="flex items-center gap-3">
+                                  <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
+                                    isHovered 
+                                      ? `bg-zinc-900 border-transparent text-white scale-110 shadow-md` 
+                                      : `${project.iconColor} text-zinc-800`
+                                  }`}>
+                                    <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                  </div>
+                                  <span className="font-mono text-xs font-bold text-zinc-400 uppercase tracking-wider">
+                                    {project.company}
+                                  </span>
+                                </div>
+                                
+                                <span className={`text-xs font-bold tracking-widest px-3 py-1 rounded-full border font-mono transition-all duration-300 uppercase ${
                                   isHovered 
-                                    ? "bg-zinc-100 text-zinc-900 font-bold border border-zinc-300/40"
-                                    : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
-                                }`}
-                              >
-                                {t}
-                              </span>
-                            ))}
+                                    ? `bg-zinc-900 text-white border-zinc-900` 
+                                    : `${project.badgeColor}`
+                                }`}>
+                                  {project.badge}
+                                </span>
+                              </div>
+
+                              <div className="space-y-2">
+                                <h4 className="text-2xl sm:text-3xl font-extrabold font-sans tracking-tight text-zinc-950 flex items-center gap-2">
+                                  <span>{project.title}</span>
+                                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-emerald-600" />
+                                </h4>
+                                <p className={`text-sm sm:text-base font-semibold leading-relaxed transition-colors duration-300 ${
+                                  isHovered ? "text-emerald-700" : "text-zinc-500"
+                                }`}>
+                                  {project.subtitle}
+                                </p>
+                              </div>
+
+                              <p className="text-zinc-600 text-xs sm:text-sm pt-4 leading-relaxed font-sans max-w-2xl">
+                                {project.description}
+                              </p>
+                            </div>
+
+                            <div className="pt-4 border-t border-zinc-200/60 flex flex-wrap items-center justify-between gap-4">
+                              <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
+                                {project.tech.map((t, idx) => (
+                                  <span 
+                                    key={idx} 
+                                    className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                                      isHovered 
+                                        ? "bg-emerald-50 text-emerald-800 font-bold border border-emerald-200"
+                                        : "bg-zinc-50 text-zinc-600 border border-zinc-200/40"
+                                    }`}
+                                  >
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+
+                              <div className="flex items-center gap-3 text-[11px] font-mono text-zinc-500">
+                                <span className="font-bold text-emerald-700">{project.statLeft}</span>
+                                <span className="text-zinc-300">|</span>
+                                <span className="font-bold text-zinc-800">{project.statRight}</span>
+                              </div>
+                            </div>
                           </div>
 
-                          <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-                            <span>{project.statLeft}</span>
-                            <span className="hidden sm:inline-block mx-1.5 opacity-60">|</span>
-                            <span className="font-bold text-zinc-800 text-xs sm:text-[10px]">
-                              {project.statRight}
-                            </span>
+                          {/* Right Column: Hero Visual Preview */}
+                          <div className="hidden md:flex w-full md:w-[300px] lg:w-[360px] shrink-0 flex-col items-center justify-center self-center">
+                            <div className="relative w-full rounded-2xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-md group-hover:border-emerald-500/50 group-hover:shadow-xl transition-all duration-500 group-hover:scale-[1.02]">
+                              <img 
+                                src={project.heroImage || "/assets/split_checkout_hero.png"} 
+                                alt={project.title}
+                                className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent flex items-end p-3.5">
+                                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/60 px-2.5 py-1 rounded-md flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                  Interactive Sandbox
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ) : (
+                        <>
+                          {/* Embedded Colored-to-Grayscale Canvas Graphics */}
+                          <div 
+                            className={`absolute right-4 bottom-4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 select-none opacity-20 pointer-events-none transition-all duration-700 ${
+                              isHovered 
+                                ? `scale-110 rotate-12 opacity-95 text-transparent bg-clip-text bg-gradient-to-tr ${project.gradient}` 
+                                : "scale-100 rotate-0 grayscale contrast-125 brightness-95 text-zinc-400"
+                            }`}
+                            style={{
+                              backgroundImage: isHovered ? "none" : "",
+                            }}
+                          >
+                            <div className={`w-full h-full flex items-center justify-center ${isHovered ? `text-indigo-500` : "text-zinc-400"}`}>
+                              <div 
+                                className={`w-full h-full transition-colors duration-500 ${
+                                  isHovered ? "text-gradient bg-gradient-to-tr " + project.gradient : "text-zinc-300"
+                                }`}
+                                style={
+                                  isHovered 
+                                    ? { 
+                                        color: "transparent",
+                                        backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops))`,
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent"
+                                      }
+                                    : undefined
+                                }
+                              >
+                                {renderProductVector(project.vectorType, isHovered, project.gradient)}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Card Header & Metadata */}
+                          <div className="z-10 w-full">
+                            <div className="flex items-center justify-between mb-4 sm:mb-6">
+                              <div className={`p-2.5 rounded-xl border transition-all duration-300 ${
+                                isHovered 
+                                  ? `bg-zinc-900 border-transparent text-white scale-110 shadow-md` 
+                                  : `${project.iconColor} text-zinc-805`
+                              }`}>
+                                <ProjectIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                              </div>
+                              
+                              <span className={`text-xs font-bold tracking-widest px-2.5 py-1 rounded border font-mono transition-all duration-300 uppercase ${
+                                isHovered 
+                                  ? `bg-zinc-900 text-white border-zinc-900` 
+                                  : `${project.badgeColor}`
+                              }`}>
+                                {project.badge}
+                              </span>
+                            </div>
+
+                            <div className="space-y-2">
+                              <h4 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950 flex items-center gap-2">
+                                <span>{project.title}</span>
+                                <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 text-zinc-400" />
+                              </h4>
+                              <p className={`text-sm sm:text-base font-medium leading-relaxed transition-colors duration-305 ${
+                                isHovered ? "text-zinc-900" : "text-zinc-500"
+                              }`}>
+                                {project.subtitle}
+                              </p>
+                            </div>
+
+                            <p className="text-zinc-650 text-xs sm:text-sm pt-4 leading-relaxed font-sans max-w-md">
+                              {project.description}
+                            </p>
+                          </div>
+
+                          {/* Description & Tech Footer */}
+                          <div className="z-10 mt-8 w-full">
+                            <div className="pt-4 border-t border-zinc-200/60 flex flex-wrap items-center justify-between gap-4">
+                              <div className="flex flex-wrap gap-1.5 sm:gap-2 select-none">
+                                {project.tech.map((t, idx) => (
+                                  <span 
+                                    key={idx} 
+                                    className={`text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                                      isHovered 
+                                        ? "bg-zinc-100 text-zinc-900 font-bold border border-zinc-300/40"
+                                        : "bg-zinc-50 text-zinc-500 border border-zinc-200/40"
+                                    }`}
+                                  >
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+
+                              <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+                                <span>{project.statLeft}</span>
+                                <span className="hidden sm:inline-block mx-1.5 opacity-60">|</span>
+                                <span className="font-bold text-zinc-800 text-xs sm:text-[10px]">
+                                  {project.statRight}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </BorderGlow>
               </motion.div>
             );

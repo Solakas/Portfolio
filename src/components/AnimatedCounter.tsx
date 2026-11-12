@@ -20,35 +20,88 @@ export default function AnimatedCounter({ value, duration = 1.2 }: AnimatedCount
   useEffect(() => {
     if (numericPart === null) return;
 
-    const el = ref.current;
-    if (!el) return;
-
-    const checkVisibility = () => {
-      const container = document.getElementById("case-study-scroll-container");
-      if (!container) return;
-
-      const containerRect = container.getBoundingClientRect();
-      const elRect = el.getBoundingClientRect();
-
-      if (elRect.top <= containerRect.bottom - 40) {
+    let isMounted = true;
+    const startAnimation = () => {
+      if (isMounted) {
         setHasStarted(true);
       }
     };
 
-    const container = document.getElementById("case-study-scroll-container");
-    if (container) {
-      container.addEventListener("scroll", checkVisibility, { passive: true });
+    // 1. Fallback timeout: ensures counters ALWAYS animate and never remain stuck at 0,
+    // regardless of whether the element is inside products-view-container, case-study-scroll-container,
+    // or standard viewport.
+    const fallbackTimer = setTimeout(startAnimation, 300);
+
+    // 2. IntersectionObserver
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              startAnimation();
+              if (observer) observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0, rootMargin: "150px" }
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
     }
+
+    // 3. Container scroll checks (supports case-study-scroll-container and products-view-container)
+    const checkVisibility = () => {
+      const el = ref.current;
+      if (!el) return;
+
+      const containers = [
+        document.getElementById("case-study-scroll-container"),
+        document.getElementById("products-view-container"),
+        document.getElementById("blueprint-scroll-container")
+      ].filter(Boolean) as HTMLElement[];
+
+      if (containers.length === 0) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= (window.innerHeight || document.documentElement.clientHeight) + 50) {
+          startAnimation();
+        }
+        return;
+      }
+
+      containers.forEach((container) => {
+        const containerRect = container.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        if (elRect.top <= containerRect.bottom + 50) {
+          startAnimation();
+        }
+      });
+    };
+
+    const scrollContainers = [
+      document.getElementById("case-study-scroll-container"),
+      document.getElementById("products-view-container"),
+      document.getElementById("blueprint-scroll-container")
+    ].filter(Boolean) as HTMLElement[];
+
+    scrollContainers.forEach((container) => {
+      container.addEventListener("scroll", checkVisibility, { passive: true });
+    });
 
     const timer1 = setTimeout(checkVisibility, 50);
     const timer2 = setTimeout(checkVisibility, 150);
 
     return () => {
-      if (container) {
-        container.removeEventListener("scroll", checkVisibility);
-      }
+      isMounted = false;
+      if (observer) observer.disconnect();
+      clearTimeout(fallbackTimer);
       clearTimeout(timer1);
       clearTimeout(timer2);
+      scrollContainers.forEach((container) => {
+        container.removeEventListener("scroll", checkVisibility);
+      });
     };
   }, [numericPart]);
 
